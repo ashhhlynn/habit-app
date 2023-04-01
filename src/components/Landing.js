@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import CurrentUser from './CurrentUser'
 import YourHabits from './YourHabits'
-import { Segment, Header, Divider} from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"
 import { fetchHabits } from './actions/rootActions'
 
-
-class Landing extends Component {
-          
+class Landing extends Component {        
 
     componentDidMount = () => {
         this.props.fetchHabits()
@@ -34,7 +32,6 @@ class Landing extends Component {
             }            
         })
     }
-
 
     render() {
         return (
@@ -62,7 +59,6 @@ const mapDispatchToProps = (dispatch) => {
     return { 
       checkUser: (data) =>  { dispatch(checkUser(data)) }, 
       fetchHabits: () =>  { dispatch(fetchHabits()) }
-
     }
 }
 

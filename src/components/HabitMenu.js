@@ -1,6 +1,6 @@
 import Calendar from 'react-calendar'
 import React, { Component } from 'react'
-import { Icon, Segment, Header, Menu} from 'semantic-ui-react'
+import { Icon, Menu} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { logOut } from "./actions/rootActions"
 import { connect } from "react-redux"
@@ -14,7 +14,6 @@ class HabitMenu extends Component {
     }    
     
     render() {
-       
         return (
           <div className="habitMenu">
                 <Menu className="nav" vertical style={{height:"100%"}}>
@@ -26,7 +25,6 @@ class HabitMenu extends Component {
           </div>
         )
     }
-
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -34,4 +32,5 @@ const mapDispatchToProps = (dispatch) => {
       logOut: () =>  { dispatch(logOut()) }, 
     }
 }
+
 export default connect(null, mapDispatchToProps)(HabitMenu)

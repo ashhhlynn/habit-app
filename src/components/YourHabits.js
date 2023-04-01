@@ -1,29 +1,16 @@
 import React, { Component } from 'react'
-import { Button, Segment, Table, Menu, Icon, Grid } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Table, Grid } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import { deleteHabit } from './actions/rootActions'
 import YourHabitsDOW from './YourHabitsDOW'
 import HabitMenu from './HabitMenu'
 
 class YourHabits extends Component {
-       
-    constructor(props){  
-        super(props);  
-        this.state = {  
-             h: []
-          }  
-    }
-        componentDidMount = () => {
-            fetch("http://localhost:3000/habits")
-            .then(response => response.json())
-            .then(habits => this.setState({h: habits}))
-        }
 
-    render() {
-      const productGroup = this.props.habits.map ( 
-        i=> <YourHabitsDOW habit={i} key={i.id}/>
-      )
+  render() {
+    const productGroup = this.props.habits.map ( 
+      i=> <YourHabitsDOW habit={i} key={i.id}/>
+    )
       return (
         <div className="yourhabits">
           <Grid stackable columns={2} >

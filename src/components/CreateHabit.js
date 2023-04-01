@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Grid, Button, Segment} from 'semantic-ui-react'
 import { createHabit } from './actions/rootActions'
-import { Link } from 'react-router-dom'
 import HabitMenu from './HabitMenu'
 import { connect } from "react-redux"
 

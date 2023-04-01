@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Menu, Icon, Table, Grid } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import Tuesday from './checkmarks/Tuesday'
 import Monday from './checkmarks/Monday'
 import Wednesday from './checkmarks/Tuesday'
@@ -14,7 +14,6 @@ class YourHabitsDOW extends Component {
         let su = this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") 
         let sa = this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") 
         let fr = this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") 
-
         let th = this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") 
         let we = this.props.habit.day_of_weeks.find(hd => hd.name === "Wednesday") 
         let tu = this.props.habit.day_of_weeks.find(hd => hd.name === "Tuesday") 
@@ -22,15 +21,15 @@ class YourHabitsDOW extends Component {
         return (  
             <>
             <Table.Row>
-                <Table.Cell>{this.props.habit.title}</Table.Cell> {
-                    this.props.habit.day_of_weeks.find(hd => hd.name === "Monday") ?  
-                        <Table.Cell>
-                            <Monday dow={mo}/>
-                        </Table.Cell>
-                    :  
-                        <Table.Cell>
-                        </Table.Cell>
-                    }
+                <Table.Cell>{this.props.habit.title}</Table.Cell> 
+                { this.props.habit.day_of_weeks.find(hd => hd.name === "Monday") ?  
+                    <Table.Cell>
+                        <Monday dow={mo}/>
+                    </Table.Cell>
+                :  
+                    <Table.Cell>
+                    </Table.Cell>
+                }
                 { this.props.habit.day_of_weeks.find(hd => hd.name === "Tuesday") ? 
                     <Table.Cell>
                         < Tuesday dow={tu}/>
@@ -55,39 +54,30 @@ class YourHabitsDOW extends Component {
                     <Table.Cell>
                     </Table.Cell>
                 }
-
-
-
-{this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") ? 
-      <Table.Cell>
-      < Friday dow={fr}/>
-  </Table.Cell>
-:     
-  <Table.Cell>
-  </Table.Cell>
-
-        }
-        {this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") ? 
-       <Table.Cell>
-       < Saturday dow={sa}/>
-   </Table.Cell>
-:     
-   <Table.Cell>
-   </Table.Cell>
-
-        }
-        {this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") ? 
-       <Table.Cell>
-       < Sunday dow={su}/>
-   </Table.Cell>
-:     
-   <Table.Cell>
-   </Table.Cell>
-
-        }
-
-
-
+                {this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") ? 
+                    <Table.Cell>
+                        < Friday dow={fr}/>
+                    </Table.Cell>
+                :     
+                    <Table.Cell>
+                    </Table.Cell>   
+                }
+                {this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") ? 
+                    <Table.Cell>
+                        < Saturday dow={sa}/>
+                    </Table.Cell>
+                :     
+                    <Table.Cell>
+                    </Table.Cell>
+                }
+                {this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") ? 
+                    <Table.Cell>
+                        < Sunday dow={su}/>
+                    </Table.Cell>
+                :     
+                    <Table.Cell>
+                    </Table.Cell>
+                }
             </Table.Row>
         </>
         )   

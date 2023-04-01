@@ -1,23 +1,12 @@
 import React, { Component } from 'react'
 import Habit from './Habit'
-import EditHabit from './EditHabit'
-import { Icon, Segment, Header,  Grid, Modal, Button} from 'semantic-ui-react'
+import { Segment, Header,  Grid } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
-import { Link } from 'react-router-dom'
 import { fetchHabits } from './actions/rootActions'
 
 class HabitContainer extends Component {
        
-    constructor(props){  
-        super(props);  
-        this.state = {  
-             h: [],
-        }  
-    }
-        
-
-
     render() {
         const habitGroup = this.props.habits.map( i => {
             return (
