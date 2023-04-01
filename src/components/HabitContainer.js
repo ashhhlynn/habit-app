@@ -16,15 +16,10 @@ class HabitContainer extends Component {
         }  
     }
         
-    componentDidMount = () => {
-            fetch("http://localhost:3000/habits")
-            .then(response => response.json())
-            .then(habits => this.setState({h: habits}))
-            this.props.fetchHabits()
-    }
+
 
     render() {
-        const habitGroup = this.state.h.map( i => {
+        const habitGroup = this.props.habits.map( i => {
             return (
             <div>
                <Header as="h3" style={{marginBottom:".5%"}}>{i.title}</Header> 
@@ -65,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect (mapStateToProps, mapDispatchToProps)(HabitContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(HabitContainer)

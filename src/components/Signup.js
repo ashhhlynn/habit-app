@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Form } from 'semantic-ui-react'
+import { createUser } from "./actions/rootActions"
+import { connect } from "react-redux"
 
 class Signup extends Component {
 
@@ -83,4 +85,11 @@ class Signup extends Component {
     }
 }
 
-export default Signup
+const mapDispatchToProps = (dispatch) => {
+    return { 
+      createUser: (data) =>  { dispatch(createUser(data)) }, 
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(Signup)

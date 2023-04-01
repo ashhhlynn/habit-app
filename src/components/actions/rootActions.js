@@ -8,24 +8,48 @@ export const fetchHabits = () => {
     }
 }
 
-
-
 export const createHabit = (habit) => {
     return (dispatch) => {
       console.log(habit)
-         {dispatch({ type: "CREATE_HABIT", habit })}
+         dispatch({ type: "CREATE_HABIT", habit })
         
     }
 }
 
-export const editHabit = () => {
+export const editHabit = (data) => {
     return (dispatch) => {
-        dispatch({ type: "EDIT_HABIT" })
+        dispatch({ type: "EDIT_HABIT", data })
     }
 }
 
-export const deleteHabit = () => {
+export const deleteHabit = (id) => {
     return (dispatch) => {
-        dispatch({ type: "DELETE_HABIT" })
+        dispatch({ type: "DELETE_HABIT", id })
     }
 }
+
+export const getExistingUser = (userData) => {
+    return (dispatch) => {
+        dispatch({ type: "SET_CURRENT_USER", user: userData })
+    }}
+
+    export const createUser = (userData) => {
+        return (dispatch) => {
+            dispatch({ type: "SET_CURRENT_USER", user: userData })
+        }
+    }
+
+    export const checkUser = (userData) => {
+        return (dispatch) => {
+
+            dispatch({ type: "SET_CURRENT_USER", user: userData })
+        }
+
+        }
+
+
+        export const logOut = () => {
+            return (dispatch) => {
+                dispatch({ type: "LOGOUT" })
+            }
+        }

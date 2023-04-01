@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { Button, Icon} from 'semantic-ui-react'
+import { editHabit } from '../actions/rootActions'
+import { connect } from "react-redux"
 
 class Monday extends Component {
+
+    state = {
+        checked: this.props.dow.done ,
+        checkeroo: 'no'
+    }
 
     handlePatchDOW = (event) => {
         event.preventDefault()
@@ -24,6 +31,9 @@ class Monday extends Component {
             }
             else {
                 window.alert("Thank you! Your order was submitted.")
+                console.log(data)
+                this.props.editHabit(data)
+                
             }
         })
     }    
@@ -32,11 +42,11 @@ class Monday extends Component {
         return (
             <>
             {!this.props.dow.done ?
-            <Button size="tiny"id="Monday"  onClick={(event) => {this.handlePatchDOW(event)}} >
-            <Icon name="square" color="red" size="big"></Icon></Button>       
+            <Button size="tiny"id="Monday"   style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
+            <Icon name="minus square outline" color="red" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Monday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
-            <Icon name="checkmark" color="green" size="big"></Icon>
+            <Icon name="checkmark" color="teal" size="big"></Icon>
             </Button>
             }
             </> 
@@ -44,4 +54,11 @@ class Monday extends Component {
     }
 }
 
-export default Monday 
+const mapDispatchToProps = (dispatch) => {
+    return { 
+      editHabit: (habit) =>  { dispatch(editHabit(habit)) }
+
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Monday)

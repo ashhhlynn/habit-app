@@ -32,6 +32,24 @@
   color: white;
 }
 
+.ui.header {
+  color: #585858  !important;
+}
+
+
+.ui.form > .header {
+  color: #585858  !important;
+}
+
+.habitMenu .nav > .ui.menu.item  {
+  color: #01011A   !important;
+}
+
+h1, h2 {
+
+  color: #585858
+
+}
 .App-link {
   color: #61dafb;
 }

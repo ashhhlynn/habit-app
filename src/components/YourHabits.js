@@ -11,7 +11,6 @@ class YourHabits extends Component {
     constructor(props){  
         super(props);  
         this.state = {  
-             habits: ["Water", "Food", "Journal"],
              h: []
           }  
     }
@@ -19,11 +18,10 @@ class YourHabits extends Component {
             fetch("http://localhost:3000/habits")
             .then(response => response.json())
             .then(habits => this.setState({h: habits}))
-            console.log(this.state.h)
         }
 
     render() {
-      const productGroup = this.state.h.map ( 
+      const productGroup = this.props.habits.map ( 
         i=> <YourHabitsDOW habit={i} key={i.id}/>
       )
       return (
@@ -57,10 +55,16 @@ class YourHabits extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+  return { 
+      habits: state.habits
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return { 
       deleteHabit: (habit) =>  { dispatch(deleteHabit(habit)) }, 
     }
 }
 
-export default connect(null, mapDispatchToProps)(YourHabits)
+export default connect(mapStateToProps, mapDispatchToProps)(YourHabits)

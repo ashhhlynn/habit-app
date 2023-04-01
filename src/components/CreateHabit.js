@@ -53,6 +53,7 @@ class CreateHabit extends Component {
                 }
                    else {
                     window.alert('Thank you! Your product was created!')
+                    this.props.createHabit(data)
                    }
             }
         )

@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Form } from "semantic-ui-react"
+import { getExistingUser } from "./actions/rootActions"
+import { connect } from "react-redux"
 
 class Login extends Component {
 
@@ -34,6 +36,7 @@ class Login extends Component {
                 else {
                     localStorage.token = data.jwt;
                     console.log(data)
+                    this.props.getExistingUser(data.user)
                 }
             })
         }
@@ -66,4 +69,10 @@ class Login extends Component {
     }
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+    return { 
+      getExistingUser: (data) =>  { dispatch(getExistingUser(data)) }, 
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Menu, Icon, Table, Grid } from 'semantic-ui-react'
 import Tuesday from './checkmarks/Tuesday'
-import Monday from './checkmarks/Tuesday'
+import Monday from './checkmarks/Monday'
 import Wednesday from './checkmarks/Tuesday'
 import Thursday from './checkmarks/Thursday'
 

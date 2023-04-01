@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 import CurrentUser from './CurrentUser'
 import YourHabits from './YourHabits'
 import { Segment, Header, Divider} from 'semantic-ui-react'
+import { checkUser } from "./actions/rootActions"
+import { connect } from "react-redux"
+import { fetchHabits } from './actions/rootActions'
+
 
 class Landing extends Component {
           
-    constructor(props){  
-        super(props);  
-        this.state = {  
-           currentUser: []
-        }  
-    }
 
     componentDidMount = () => {
+        this.props.fetchHabits()
         const token = localStorage.token;
         console.log(token)
         return fetch('http://localhost:3000/profile', {
@@ -31,6 +30,7 @@ class Landing extends Component {
             else {
                 this.setState({currentUser: data.user})
                 console.log(data.user)
+                this.props.checkUser(data.user)
             }            
         })
     }
@@ -38,7 +38,7 @@ class Landing extends Component {
 
     render() {
         return (
-            !this.state.currentUser ?
+            !this.props.currentUser ?
                 <div className="landingpg">
                     <center>
                         <Segment style={{width:"700px"}}>
@@ -52,4 +52,18 @@ class Landing extends Component {
     }
 }
 
-export default Landing
+const mapStateToProps = (state) => {
+    return { 
+        currentUser: state.currentUser
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return { 
+      checkUser: (data) =>  { dispatch(checkUser(data)) }, 
+      fetchHabits: () =>  { dispatch(fetchHabits()) }
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

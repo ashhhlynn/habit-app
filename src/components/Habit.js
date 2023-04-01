@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Icon, Modal } from 'semantic-ui-react'
 import EditHabit from './EditHabit'
+import { deleteHabit } from './actions/rootActions'
+import { connect } from "react-redux"
 
 class Habit extends Component {
   
@@ -15,8 +17,23 @@ class Habit extends Component {
     }
 
     handleDelete = () => {
-    }
-
+        let id = this.props.habit.id
+        const token = localStorage.token;
+        return fetch(`http://localhost:3000/habits/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })   
+        .then(
+            window.alert("Thank you! Your product was deleted."),
+            this.props.deleteHabit(id)
+        )
+    }           
+    
+  
     handleOpenCp = () => {
         this.setState({ modalOpenCp: true });
     }
@@ -39,7 +56,7 @@ class Habit extends Component {
                 <Button color="teal" basic size="mini" onClick={this.handleOpenCp}>
                         <Icon name="pencil alternate"/> 
                 </Button>
-                <Button color="teal" basic size="mini">
+                <Button color="teal" basic size="mini" onClick={this.handleDelete}>
                     <Icon name="trash"></Icon>
                 </Button>
                 <Modal 
@@ -55,4 +72,10 @@ class Habit extends Component {
     }
 }
 
-export default Habit
+const mapDispatchToProps = (dispatch) => {
+    return {
+      deleteHabit: (id) =>  { dispatch(deleteHabit(id)) }
+    }
+  }
+
+export default connect(null, mapDispatchToProps)(Habit)
