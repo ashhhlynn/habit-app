@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Icon, Modal } from 'semantic-ui-react'
+import { Button, Icon, Modal, Label } from 'semantic-ui-react'
 import EditHabit from './EditHabit'
 import { deleteHabit } from './actions/rootActions'
 import { connect } from "react-redux"
@@ -42,13 +42,13 @@ class Habit extends Component {
         const dow = this.props.habit.day_of_weeks.map(i => {
             return (
             <>
-            <Button circular size="tiny" color="teal">{i.name.charAt(0)}</Button>
+            <Label style={{ justifyContent:"center", textAlign:"center"}} circular size="large" color="teal">{i.name.charAt(0)} </Label> 
             </>
             )
         }) 
         return (
             <>
-                {dow}
+                {dow} 
                 <Button color="teal" basic size="mini" onClick={this.handleOpenCp}>
                         <Icon name="pencil alternate"/> 
                 </Button>

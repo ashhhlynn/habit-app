@@ -10,7 +10,7 @@ class CreateHabit extends Component {
         title: '',
         description: '',
         startday:'',
-        dayz: []
+        habitDays: []
     }
 
     handleChange = (event) => {
@@ -22,15 +22,15 @@ class CreateHabit extends Component {
     handleDOW = (event) => {
         event.preventDefault()
         console.log(event.target.id)
-        this.state.dayz.push(event.target.id)
-        console.log(this.state.dayz)
+        this.state.habitDays.push(event.target.id)
+        console.log(this.state.habitDays)
     }
 
     handleSubmit = (event, habit) => {
         event.preventDefault()
         console.log(habit)
         const token = localStorage.token;
-        let d = habit.dayz
+        let d = habit.habitDays
         console.log(d)
                 return fetch('http://localhost:3000/habits', {
                 method: 'POST',
@@ -42,7 +42,7 @@ class CreateHabit extends Component {
                 body: JSON.stringify({
                    title: habit.title,
                    description: habit.description,
-                    day_of_weeks: habit.dayz
+                    day_of_weeks: habit.habitDays
                 })
                 })
                 .then(resp => resp.json())
