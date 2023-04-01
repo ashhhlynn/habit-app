@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CurrentUser from './CurrentUser'
-import YourHabits from './YourHabits'
+import YourHabits from './DashboardHabits'
 import { Segment } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"

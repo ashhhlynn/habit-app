@@ -8,7 +8,7 @@ import Friday from './checkmarks/Friday'
 import Saturday from './checkmarks/Saturday'
 import Sunday from './checkmarks/Sunday'
 
-class YourHabitsDOW extends Component {
+class DashboardHabitsDOW extends Component {
 
     render() {      
         let su = this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") 
@@ -84,4 +84,4 @@ class YourHabitsDOW extends Component {
     }
 }
 
-export default YourHabitsDOW 
+export default DashboardHabitsDOW 

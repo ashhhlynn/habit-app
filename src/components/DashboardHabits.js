@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { Table, Grid } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import { deleteHabit } from './actions/rootActions'
-import YourHabitsDOW from './YourHabitsDOW'
+import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
 
-class YourHabits extends Component {
+class DashboardHabits extends Component {
 
   render() {
     const productGroup = this.props.habits.map ( 
-      i=> <YourHabitsDOW habit={i} key={i.id}/>
+      i=> <DashboardHabitsDOW habit={i} key={i.id}/>
     )
       return (
         <div className="yourhabits">
@@ -54,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(YourHabits)
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardHabits)

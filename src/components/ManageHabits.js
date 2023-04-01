@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
 import { fetchHabits } from './actions/rootActions'
 
-class HabitContainer extends Component {
+class ManageHabits extends Component {
        
     render() {
         const habitGroup = this.props.habits.map( i => {
@@ -49,4 +49,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HabitContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ManageHabits)

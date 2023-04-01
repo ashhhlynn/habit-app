@@ -1,4 +1,3 @@
-import Calendar from 'react-calendar'
 import React, { Component } from 'react'
 import { Icon, Menu} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
