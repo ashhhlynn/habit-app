@@ -27,23 +27,23 @@ class YourHabits extends Component {
         i=> <YourHabitsDOW habit={i} key={i.id}/>
       )
       return (
-        <div>
+        <div className="yourhabits">
           <Grid stackable columns={2} >
               <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu />
               </Grid.Column>
               <Grid.Column>
-                <Table celled columns={7}>
+                <Table celled  columns={7}>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell>Habit</Table.HeaderCell>
-                      <Table.HeaderCell>Monday</Table.HeaderCell>
-                      <Table.HeaderCell>Tuesday</Table.HeaderCell>
-                      <Table.HeaderCell>Wednesday</Table.HeaderCell>
-                      <Table.HeaderCell>Thursday</Table.HeaderCell>
-                      <Table.HeaderCell>Friday</Table.HeaderCell>
-                      <Table.HeaderCell>Saturday</Table.HeaderCell>
-                      <Table.HeaderCell>Sunday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Habit</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Monday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Tuesday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Wednesday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"250px"}}>Thursday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"250px"}}>Friday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"250px"}}>Saturday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"250px"}}>Sunday</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>

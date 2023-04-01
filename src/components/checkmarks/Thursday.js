@@ -35,7 +35,7 @@ class Thursday extends Component {
             <>
             {!this.props.dow.done ?
             <Button size="tiny"id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
-            <Icon name="minus" color="red" size="big"></Icon></Button>       
+            <Icon name="minus square" color="red" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>

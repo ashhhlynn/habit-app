@@ -20,6 +20,7 @@
   height: 653px;
   margin-top: -3.5%
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -33,6 +34,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.yourhabits .ui.table.cell {
+  width: 300px  !important;
 }
 
 @keyframes App-logo-spin {

@@ -5,6 +5,7 @@ import { Icon, Segment, Header,  Grid, Modal, Button} from 'semantic-ui-react'
 import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
 import { Link } from 'react-router-dom'
+import { fetchHabits } from './actions/rootActions'
 
 class HabitContainer extends Component {
        
@@ -19,6 +20,7 @@ class HabitContainer extends Component {
             fetch("http://localhost:3000/habits")
             .then(response => response.json())
             .then(habits => this.setState({h: habits}))
+            this.props.fetchHabits()
     }
 
     render() {
@@ -56,4 +58,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect (mapStateToProps)(HabitContainer)
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchHabits: () =>  { dispatch(fetchHabits()) }
+    }
+  }
+
+export default connect (mapStateToProps, mapDispatchToProps)(HabitContainer)
