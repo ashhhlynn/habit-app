@@ -13,9 +13,6 @@ class Habit extends Component {
         }  
     }
             
-    handleEdit = () => {
-    }
-
     handleDelete = () => {
         let id = this.props.habit.id
         const token = localStorage.token;
@@ -33,7 +30,6 @@ class Habit extends Component {
         )
     }           
     
-  
     handleOpenCp = () => {
         this.setState({ modalOpenCp: true });
     }

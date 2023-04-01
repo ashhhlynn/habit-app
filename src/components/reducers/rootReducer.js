@@ -28,6 +28,13 @@ const rootReducer = (state = initialState, action) => {
                 loading: false
             };
 
+            case "PATCH_HABIT":
+                return {
+                    ...state,
+                    loading: false,
+                    habits: [...state.habits.filter(item=> item.id !== action.data.id), action.data],          
+                };  
+
         case "EDIT_HABIT":
             return {
                 ...state,

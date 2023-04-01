@@ -99,7 +99,7 @@ class CreateHabit extends Component {
                     <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >F</Button>
                     <Button id="Saturday" basic circular color="teal" onClick={this.handleDOW} >SA</Button>
                     <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>S</Button><br></br><br></br>
-                   <Form.Button className="formButtons" content='Submit'/>        
+                   <Form.Button inverted style={{width:"250px", color:"white", backgroundColor:"#585858"}}className="formButtons" content='Submit'/>        
                 </Form></Segment>           
             </Grid.Column>
             </Grid>

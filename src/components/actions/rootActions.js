@@ -21,6 +21,12 @@ export const editHabit = (data) => {
     }
 }
 
+export const patchHabit = (data) => {
+    return (dispatch) => {
+        dispatch({ type: "PATCH_HABIT", data })
+    }
+}
+
 export const deleteHabit = (id) => {
     return (dispatch) => {
         dispatch({ type: "DELETE_HABIT", id })

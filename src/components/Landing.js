@@ -8,31 +8,6 @@ import { fetchHabits } from './actions/rootActions'
 
 class Landing extends Component {        
 
-    componentDidMount = () => {
-        this.props.fetchHabits()
-        const token = localStorage.token;
-        console.log(token)
-        return fetch('http://localhost:3000/profile', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            if (data.message) {
-                localStorage.removeItem("token")
-            }
-            else {
-                this.setState({currentUser: data.user})
-                console.log(data.user)
-                this.props.checkUser(data.user)
-            }            
-        })
-    }
-
     render() {
         return (
             !this.props.currentUser ?

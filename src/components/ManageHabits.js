@@ -26,7 +26,7 @@ class ManageHabits extends Component {
                             <HabitMenu />
                         </Grid.Column>
                         <Grid.Column>
-                            <Segment style={{width:"700px"}}>
+                            <Segment style={{backgroundColor:"#F0f0f0", width:"700px", paddingTop:"35px"}}>
                                 {habitGroup}
                             </Segment>
                         </Grid.Column> 
