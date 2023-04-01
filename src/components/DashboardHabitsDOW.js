@@ -10,14 +10,40 @@ import Sunday from './checkmarks/Sunday'
 
 class DashboardHabitsDOW extends Component {
 
+        state = {  
+            su: [],
+            sa: [],
+            fr: [],
+            th: [],
+            we:[],
+            tu:[],
+            mo:[]
+        }  
+    
+
+    
+    setIt = (monday) =>
+    {
+        this.setState({mo: [...this.state.mo, monday]})
+    }
+ 
+    
+    
+    
+
+    
+    
+
     render() {      
         let su = this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") 
-        let sa = this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") 
+        let sa = this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday")  
         let fr = this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") 
-        let th = this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") 
+        let th = this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday")  
         let we = this.props.habit.day_of_weeks.find(hd => hd.name === "Wednesday") 
+        let mo = this.props.habit.day_of_weeks.find(hd => hd.name === "Monday")
         let tu = this.props.habit.day_of_weeks.find(hd => hd.name === "Tuesday") 
-        let mo = this.props.habit.day_of_weeks.find(hd => hd.name === "Monday") 
+
+  
         return (  
             <>
             <Table.Row>

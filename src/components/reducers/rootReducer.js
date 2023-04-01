@@ -21,9 +21,10 @@ const rootReducer = (state = initialState, action) => {
             };
             
         case "CREATE_HABIT":
+            console.log(action.habit)
             return {
                 ...state,
-                habits: [...state.habits, action.data],
+                habits: [...state.habits, action.habit],
                 loading: false
             };
 

@@ -18,17 +18,17 @@ class DashboardHabits extends Component {
                 <HabitMenu />
               </Grid.Column>
               <Grid.Column>
-                <Table celled  columns={7}>
+                <Table className="dash" celled>
                   <Table.Header>
                     <Table.Row>
                       <Table.HeaderCell style={{width:"200px"}}>Habit</Table.HeaderCell>
                       <Table.HeaderCell style={{width:"200px"}}>Monday</Table.HeaderCell>
                       <Table.HeaderCell style={{width:"200px"}}>Tuesday</Table.HeaderCell>
                       <Table.HeaderCell style={{width:"200px"}}>Wednesday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"250px"}}>Thursday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"250px"}}>Friday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"250px"}}>Saturday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"250px"}}>Sunday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Thursday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Friday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Saturday</Table.HeaderCell>
+                      <Table.HeaderCell style={{width:"200px"}}>Sunday</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>
