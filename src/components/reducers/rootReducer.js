@@ -6,15 +6,13 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-   
-
-case "FETCH_HABITS":
-    console.log(action.habits)
-    return {
-        ...state,
-        habits: action.habits,
-        loading: false,
-    };
+        case "FETCH_HABITS":
+            console.log(action.habits)
+            return {
+                ...state,
+                habits: action.habits,
+                loading: false,
+            };
 
         case "FETCH_HABITS_REQUEST":
             return {
@@ -22,48 +20,41 @@ case "FETCH_HABITS":
                 loading: true
             };
             
-       
-            case "CREATE_HABIT":
-                return {
-                    ...state,
-                   habits: [...state.habits, action.data],
-                    loading: false
-                };
+        case "CREATE_HABIT":
+            return {
+                ...state,
+                habits: [...state.habits, action.data],
+                loading: false
+            };
 
-                case "EDIT_HABIT":
-                    return {
-                        ...state,
-                        loading: false,
-                        habits: [...state.habits.filter(item=> item.id !== action.data.habit_id), action.data.habit],
-                              
-                            };
-                    
+        case "EDIT_HABIT":
+            return {
+                ...state,
+                loading: false,
+                habits: [...state.habits.filter(item=> item.id !== action.data.habit_id), action.data.habit],          
+            };  
+            
+        case "DELETE_HABIT":
+            return {
+                ...state,
+                loading: false,
+                habits: state.habits.filter(item=> item.id !== action.id),
+            };
+        
+        case 'SET_CURRENT_USER':
+            console.log(action.user)
+            return {
+                ...state, 
+                currentUser: action.user, 
+                loading: false
+            };
 
-                    case "DELETE_HABIT":
-                        return {
-                            ...state,
-                            loading: false,
-                            habits: state.habits.filter(item=> item.id !== action.id),
-
-                        };
-
-
-
-                        case 'SET_CURRENT_USER':
-                            console.log(action.user)
-                            return {
-                                ...state, 
-                                currentUser: action.user, 
-                                loading: false
-                            };
-                
-                        case 'LOGOUT':
-                            return {
-                                ...state, 
-                                currentUser: [], 
-                                loading: false,
-                          
-                            };
+        case 'LOGOUT':
+            return {
+                ...state, 
+                currentUser: [], 
+                loading: false  
+            };
 
         default:
             return state;
