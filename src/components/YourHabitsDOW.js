@@ -4,10 +4,17 @@ import Tuesday from './checkmarks/Tuesday'
 import Monday from './checkmarks/Monday'
 import Wednesday from './checkmarks/Tuesday'
 import Thursday from './checkmarks/Thursday'
+import Friday from './checkmarks/Friday'
+import Saturday from './checkmarks/Saturday'
+import Sunday from './checkmarks/Sunday'
 
 class YourHabitsDOW extends Component {
 
     render() {      
+        let su = this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") 
+        let sa = this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") 
+        let fr = this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") 
+
         let th = this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") 
         let we = this.props.habit.day_of_weeks.find(hd => hd.name === "Wednesday") 
         let tu = this.props.habit.day_of_weeks.find(hd => hd.name === "Tuesday") 
@@ -53,23 +60,29 @@ class YourHabitsDOW extends Component {
 
 {this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") ? 
       <Table.Cell>
-<Icon name="square outline" size="big"></Icon>     </Table.Cell>:
-        
-        <Table.Cell></Table.Cell>
+      < Friday dow={fr}/>
+  </Table.Cell>
+:     
+  <Table.Cell>
+  </Table.Cell>
 
         }
         {this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") ? 
-      <Table.Cell>
-<Icon name="square outline" size="big"></Icon>       </Table.Cell>:
-        
-        <Table.Cell></Table.Cell>
+       <Table.Cell>
+       < Saturday dow={sa}/>
+   </Table.Cell>
+:     
+   <Table.Cell>
+   </Table.Cell>
 
         }
         {this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") ? 
-      <Table.Cell>
-<Icon name="square outline" size="big"></Icon>       </Table.Cell>:
-        
-        <Table.Cell></Table.Cell>
+       <Table.Cell>
+       < Sunday dow={su}/>
+   </Table.Cell>
+:     
+   <Table.Cell>
+   </Table.Cell>
 
         }
 
