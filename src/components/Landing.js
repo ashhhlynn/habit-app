@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import MyCalendar from './MyCalendar'
 import CurrentUser from './CurrentUser'
 import YourHabits from './YourHabits'
 import { Segment, Header, Divider} from 'semantic-ui-react'
-
 
 class Landing extends Component {
           
@@ -11,12 +9,10 @@ class Landing extends Component {
         super(props);  
         this.state = {  
            currentUser: []
-          }  
-        }
+        }  
+    }
 
-    
-    componentDidMount = () =>
-    {
+    componentDidMount = () => {
         const token = localStorage.token;
         console.log(token)
         return fetch('http://localhost:3000/profile', {
@@ -33,41 +29,27 @@ class Landing extends Component {
                 localStorage.removeItem("token")
             }
             else {
-
                 this.setState({currentUser: data.user})
-
                 console.log(data.user)
             }            
         })
-      
     }
 
 
     render() {
-
         return (
-          
-        
-       !this.state.currentUser ?
-  <div className="landingpg">
-    
-    <h1 style={{fontFamily:"segoe Script", fontSize:"44px"}}>Habitify</h1>
-                <Divider></Divider>
-    
-   <center><Segment style={{width:"700px"}}>
-<CurrentUser/></Segment></center> 
-
-
-
-
-           </div> 
+            !this.state.currentUser ?
+                <div className="landingpg">
+                    <center>
+                        <Segment style={{width:"700px"}}>
+                            <CurrentUser/>
+                        </Segment>
+                    </center> 
+               </div> 
            :
-        
-
-           <YourHabits/>
-       )
-    
+                <YourHabits/>
+        )     
+    }
 }
 
-}
 export default Landing

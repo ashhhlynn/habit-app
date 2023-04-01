@@ -1,7 +1,5 @@
 import React, { Component } from "react"
 import { Form } from "semantic-ui-react"
-import HabitContainer from './HabitContainer'
-
 
 class Login extends Component {
 
@@ -63,12 +61,9 @@ class Login extends Component {
                     /> 
                     <Form.Button content='Submit' />
                 </Form>
-
             </>
         )
     }
 }
-
-
 
 export default Login

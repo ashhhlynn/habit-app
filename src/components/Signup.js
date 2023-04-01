@@ -1,7 +1,5 @@
 import React, { Component } from "react"
 import { Form } from 'semantic-ui-react'
-import HabitContainer from './HabitContainer'
-
 
 class Signup extends Component {
 
@@ -14,7 +12,6 @@ class Signup extends Component {
 
     handleSubmit = (event, userData) => {
         event.preventDefault()
-
             return fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -35,11 +32,6 @@ class Signup extends Component {
                 }
             })
         }
-    
-
-
-
-    
 
     handleChange = (event) => {
         this.setState ({
@@ -50,8 +42,6 @@ class Signup extends Component {
     render() {
         return (
             <>
-
-
             <h2 >Register</h2>
             <Form onSubmit={ (event) => {this.handleSubmit(event, this.state)} }>              
                 <Form.Input
@@ -70,8 +60,6 @@ class Signup extends Component {
                     value={this.state.email} 
                     onChange={this.handleChange}
                 />
-                 
-              
                 <Form.Input
                     required
                     id="password"
@@ -94,7 +82,5 @@ class Signup extends Component {
         )
     }
 }
-
-
 
 export default Signup
