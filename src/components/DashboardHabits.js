@@ -18,7 +18,7 @@ class DashboardHabits extends Component {
                 <HabitMenu />
               </Grid.Column>
               <Grid.Column>
-                <Table className="dash" celled>
+                <Table style={{textAlign:"center", marginLeft:"8%"}} className="dash" celled>
                   <Table.Header>
                     <Table.Row>
                       <Table.HeaderCell style={{width:"200px"}}>Habit</Table.HeaderCell>

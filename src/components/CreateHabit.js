@@ -66,7 +66,7 @@ class CreateHabit extends Component {
                 <HabitMenu/>
             </Grid.Column>
             <Grid.Column>
-                <Segment style={{width:"700px"}}>
+                <Segment style={{marginLeft: "9%", width:"700px"}}>
                     <h2>Create Habit</h2>
                     <Form onSubmit= { (event) => {this.handleSubmit(event, this.state)}}>
                     <Form.Input

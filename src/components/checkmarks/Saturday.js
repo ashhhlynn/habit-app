@@ -42,7 +42,7 @@ class Saturday extends Component {
             <Icon name="minus square outline" color="red" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Saturday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
-            <Icon name="checkmark" color="teal" size="big"></Icon>
+            <Icon name="checkmark" color="grey" size="big"></Icon>
             </Button>
             }
             </> 
