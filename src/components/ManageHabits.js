@@ -4,8 +4,6 @@ import { Segment, Header,  Grid } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
 import { fetchHabits } from './actions/rootActions'
-import Navbar from './Navbar'
-
 
 class ManageHabits extends Component {
        
@@ -13,7 +11,7 @@ class ManageHabits extends Component {
         const habitGroup = this.props.habits.map( i => {
             return (
             <div>
-               <Header as="h3" style={{marginBottom:".5%"}}>{i.title}</Header> 
+               <Header as="h3" style={{marginBottom:".0%"}}>{i.title}</Header> 
                 <i>{i.description} </i>
                 <br></br>  
                 <Habit habit={i}/> 

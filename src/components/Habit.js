@@ -49,12 +49,8 @@ class Habit extends Component {
         return (
             <>
                 {dow} 
-                <Button color="teal" basic size="mini" onClick={this.handleOpenCp}>
-                        <Icon name="pencil alternate"/> 
-                </Button>
-                <Button color="teal" basic size="mini" onClick={this.handleDelete}>
-                    <Icon name="trash"></Icon>
-                </Button>
+                <Button color="teal" basic size="mini" onClick={this.handleOpenCp}><Icon name="pencil alternate"/></Button>
+                <Button color="teal" basic size="mini" onClick={this.handleDelete}><Icon name="trash"></Icon></Button>
                 <Modal 
                 open={this.state.modalOpenCp}
                 onClose={this.handleCloseCp}
