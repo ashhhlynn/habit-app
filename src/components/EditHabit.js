@@ -15,6 +15,10 @@ class EditHabit extends Component {
         startday: this.props.habit.startday
       }
   }
+
+  componentDidMount = () => {
+    
+  }
         
     handleChange = (event) => {
       this.setState ({

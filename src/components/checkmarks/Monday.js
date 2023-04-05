@@ -6,13 +6,12 @@ import { connect } from "react-redux"
 class Monday extends Component {
 
     state = {
-        checked: this.props.dow.done ,
         checkeroo: 'no'
     }
 
-    handleDoneDOW = (event) => {
+    handleDoneDOW = (event, id) => {
         event.preventDefault()
-        let t = this.props.dow.id
+        let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -38,9 +37,9 @@ class Monday extends Component {
     }    
 
     
-    handleNotDoneDOW = (event) => {
+    handleNotDoneDOW = (event, id) => {
         event.preventDefault()
-        let t = this.props.dow.id
+        let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -66,13 +65,15 @@ class Monday extends Component {
     } 
     
     render() {
+        let dow = this.props.habit.day_of_weeks.find(d => d.name === "Monday")
+        console.log(dow)
         return (
             <>
-            {!this.props.dow.done ?
-            <Button size="tiny"id="Monday"   style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleDoneDOW(event)}} >
+                        {!dow.done ?
+            <Button size="tiny"id="Monday"   style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleDoneDOW(event, dow.id)}} >
             <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
             :
-            <Button size="tiny"  id="Monday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event)}} >
+            <Button size="tiny"  id="Monday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>
             </Button>
             }

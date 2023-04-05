@@ -21,6 +21,10 @@ class DashboardHabitsDOW extends Component {
         }  
     
 
+
+        componentDidMount = () => {
+            console.log(this.props.habit.day_of_weeks)
+        }
     
     setIt = (monday) =>
     {
@@ -50,7 +54,7 @@ class DashboardHabitsDOW extends Component {
                 <Table.Cell>{this.props.habit.title}</Table.Cell> 
                 { this.props.habit.day_of_weeks.find(hd => hd.name === "Monday") ?  
                     <Table.Cell>
-                        <Monday dow={mo}/>
+                        <Monday habit={this.props.habit}/>
                     </Table.Cell>
                 :  
                     <Table.Cell>
@@ -58,7 +62,7 @@ class DashboardHabitsDOW extends Component {
                 }
                 { this.props.habit.day_of_weeks.find(hd => hd.name === "Tuesday") ? 
                     <Table.Cell>
-                        < Tuesday dow={tu}/>
+                        < Tuesday habit={this.props.habit}/>
                     </Table.Cell>
                 :  
                     <Table.Cell>

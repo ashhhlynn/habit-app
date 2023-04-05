@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CurrentUser from './CurrentUser'
 import YourHabits from './DashboardHabits'
-import { Segment, Button, Modal } from 'semantic-ui-react'
+import { Segment, Icon, Button, Modal } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"
 import { fetchHabits } from './actions/rootActions'
@@ -33,9 +33,7 @@ class Landing extends Component {
 
 
 <div>
-<center><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-<Segment style={{width:"500px"}}>
-<h1 style={{marginTop: "3.5%", fontFamily:"segoe Script", fontSize:"44px"}}>Habitify</h1>
+<center>
     
 <Modal 
     open={this.state.modalOpen}
@@ -45,14 +43,16 @@ class Landing extends Component {
       <CurrentUser handleClose={this.handleClose} />
     </Modal.Content>
   </Modal>
-{!this.props.currentUser ?
-<Button onClick={this.handleOpen} size="huge">GET STARTED</Button>
+<img style={{width:"280px", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png"/>
+
+
+<br></br>{!this.props.currentUser ?
+<Button onClick={this.handleOpen} circular style={{backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">START</Button>
 
 :
-<Link to="/habits"><Button  style={{backgroundColor:"#FFFFFF"}} size="huge" >DASHBOARD</Button></Link>
+<Link to="/habits"><Button  circular style={{backgroundColor:"#FFFFFF"}} size="massive" >TRACK HABITS</Button></Link>
 
 }
-</Segment>
 </center>
 </div>
           

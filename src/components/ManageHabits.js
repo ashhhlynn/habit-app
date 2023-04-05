@@ -23,7 +23,7 @@ class ManageHabits extends Component {
         })
         return (
             <div>
-                <Navbar/>
+             
                 <Grid stackable columns={2} >
                         <Grid.Column style={{width:"300px"}}> 
                             <HabitMenu />

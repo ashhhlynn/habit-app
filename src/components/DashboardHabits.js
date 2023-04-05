@@ -14,7 +14,7 @@ class DashboardHabits extends Component {
     )
       return (
         <div className="yourhabits">
-          <Navbar/>
+        
           <Grid stackable columns={2} >
               <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu />
