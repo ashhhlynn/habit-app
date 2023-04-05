@@ -17,7 +17,6 @@ class App extends Component {
   componentDidMount = () => {
     this.props.fetchHabits()
     if (localStorage.token){
-  
     const token = localStorage.token;
     console.log(token)
     return fetch('http://localhost:3000/profile', {

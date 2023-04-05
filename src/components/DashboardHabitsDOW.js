@@ -11,7 +11,6 @@ import Sunday from './checkmarks/Sunday'
 class DashboardHabitsDOW extends Component {
 
     render() {      
-  
         return (  
             <>
             <Table.Row>
@@ -20,22 +19,17 @@ class DashboardHabitsDOW extends Component {
                     <Table.Cell>
                         <Monday habit={this.props.habit}/>
                     </Table.Cell>
-    :
-    <Table.Cell>
-</Table.Cell>}
-
-
-{this.props.habit.day_of_weeks.find(d => d.name === "Tuesday") ? 
+                :
+                    <Table.Cell>
+                    </Table.Cell>}
+                {this.props.habit.day_of_weeks.find(d => d.name === "Tuesday") ? 
                     <Table.Cell>
                         < Tuesday habit={this.props.habit}/>
                     </Table.Cell>
                 :  
                     <Table.Cell>
                     </Table.Cell>
-                }
-            
-
-
+                }      
                 {this.props.habit.day_of_weeks.find(d => d.name === "Wednesday") ? 
                     <Table.Cell>
                         < Wednesday habit={this.props.habit}/>
@@ -45,10 +39,9 @@ class DashboardHabitsDOW extends Component {
                     </Table.Cell>
                 }             
               
-              {this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") ? 
+                {this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") ? 
                     <Table.Cell>
-                                                < Thursday habit={this.props.habit}/>
-
+                        < Thursday habit={this.props.habit}/>
                     </Table.Cell>
                 :     
                     <Table.Cell>
@@ -56,8 +49,7 @@ class DashboardHabitsDOW extends Component {
                 }
                 {this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") ? 
                     <Table.Cell>
-                                                                        < Friday habit={this.props.habit}/>
-
+                        < Friday habit={this.props.habit}/>
                     </Table.Cell>
                 :     
                     <Table.Cell>
@@ -65,7 +57,7 @@ class DashboardHabitsDOW extends Component {
                 }
                 {this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") ? 
                     <Table.Cell>
-                         < Saturday habit={this.props.habit}/>
+                        < Saturday habit={this.props.habit}/>
                     </Table.Cell>
                 :     
                     <Table.Cell>
@@ -73,13 +65,12 @@ class DashboardHabitsDOW extends Component {
                 }
                 {this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") ? 
                     <Table.Cell>
-                             < Sunday habit={this.props.habit}/>
+                        < Sunday habit={this.props.habit}/>
                     </Table.Cell>
                 :     
                     <Table.Cell>
                     </Table.Cell>
                 }
-
             </Table.Row>
         </>
         )   

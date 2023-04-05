@@ -4,18 +4,13 @@ import { connect } from "react-redux"
 import { deleteHabit } from './actions/rootActions'
 import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
-import Navbar from './Navbar'
 import { fetchHabits } from './actions/rootActions'
 
 class DashboardHabits extends Component {
 
-
-  
   componentDidMount = () => {
-    this.props.fetchHabits()
-    
-}
-
+    this.props.fetchHabits() 
+  }
 
   render() {
     const productGroup = this.props.habits.map ( 
@@ -23,7 +18,6 @@ class DashboardHabits extends Component {
     )
       return (
         <div className="yourhabits">
-        
           <Grid stackable columns={2} >
               <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu />
@@ -65,8 +59,5 @@ const mapDispatchToProps = (dispatch) => {
       fetchHabits: () =>  { dispatch(fetchHabits()) }
     }
 }
-
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardHabits)

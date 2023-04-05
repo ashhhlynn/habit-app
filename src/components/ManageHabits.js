@@ -21,7 +21,6 @@ class ManageHabits extends Component {
         })
         return (
             <div>
-             
                 <Grid stackable columns={2} >
                         <Grid.Column style={{width:"300px"}}> 
                             <HabitMenu />
@@ -48,6 +47,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
       fetchHabits: () =>  { dispatch(fetchHabits()) }
     }
-  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageHabits)
