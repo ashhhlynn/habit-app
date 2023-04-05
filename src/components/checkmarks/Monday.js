@@ -2,16 +2,33 @@ import React, { Component } from 'react'
 import { Button, Icon} from 'semantic-ui-react'
 import { editHabit } from '../actions/rootActions'
 import { connect } from "react-redux"
+import { fetchHabits } from '../actions/rootActions'
 
 class Monday extends Component {
 
+
     state = {
-        checkeroo: 'no'
+        Monday: false,
+        day: []
     }
 
-    handleDoneDOW = (event, id) => {
+    componentDidMount = () => {
+        if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")){
+        let dow = this.props.habit.day_of_weeks.find(d => d.name === "Monday")
+        this.setState({day: dow })
+
+ if (dow.done) {
+        this.setState({Monday: true })}
+        else {
+            this.setState({Monday: false })}        
+    }}
+
+    handlePatchDOW = (event, id) => {
         event.preventDefault()
+        this.setState({Monday: true })
+
         let t = id
+        console.log(t)
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -30,15 +47,13 @@ class Monday extends Component {
             }
             else {
                 window.alert("Thank you! Your order was submitted.")
-                console.log(data)
-                this.props.editHabit(data)
             }
         })
     }    
 
-    
     handleNotDoneDOW = (event, id) => {
         event.preventDefault()
+        this.setState({Monday: false })
         let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
@@ -59,18 +74,18 @@ class Monday extends Component {
             else {
                 window.alert("Thank you! Your order was submitted.")
                 console.log(data)
-                this.props.editHabit(data)
+
             }
         })
-    } 
+    }
     
     render() {
-        let dow = this.props.habit.day_of_weeks.find(d => d.name === "Monday")
-        console.log(dow)
+        let dow = this.state.day
+        
         return (
             <>
-                        {!dow.done ?
-            <Button size="tiny"id="Monday"   style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleDoneDOW(event, dow.id)}} >
+                        {this.state.Monday === false ?
+            <Button size="tiny"id="Monday"   style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
             <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Monday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
@@ -81,10 +96,10 @@ class Monday extends Component {
         )
     }
 }
-
 const mapDispatchToProps = (dispatch) => {
     return { 
-      editHabit: (habit) =>  { dispatch(editHabit(habit)) }
+      editHabit: (habit) =>  { dispatch(editHabit(habit)) },
+    fetchHabits: () =>  { dispatch(fetchHabits()) }
 
     }
 }

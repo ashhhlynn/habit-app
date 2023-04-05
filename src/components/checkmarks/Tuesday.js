@@ -4,9 +4,33 @@ import { Form, Grid, Button, Icon} from 'semantic-ui-react'
 
 class Tuesday extends Component {
 
-    handlePatchDOW = (event) => {
+
+    state = {
+        Tuesday: false,
+        day: []
+    }
+
+    componentDidMount = () => {
+        if (this.props.habit.day_of_weeks.find(d => d.name === "Tuesday")){
+        let dow = this.props.habit.day_of_weeks.find(d => d.name === "Tuesday")
+        this.setState({day: dow })
+
+ if (dow.done) {
+        this.setState({Tuesday: true })}
+        else {
+            this.setState({Tuesday: false })}        
+    }
+else {
+    this.setState({day: [] })
+
+}
+
+}
+
+
+    handlePatchDOW = (event, id) => {
         event.preventDefault()
-        let t = this.props.dow.id
+        let t = id
         console.log(t)
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
@@ -30,9 +54,9 @@ class Tuesday extends Component {
         })
     }    
 
-    handleNotDoneDOW = (event) => {
+    handleNotDoneDOW = (event, id) => {
         event.preventDefault()
-        let t = this.props.dow.id
+        let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -52,19 +76,19 @@ class Tuesday extends Component {
             else {
                 window.alert("Thank you! Your order was submitted.")
                 console.log(data)
-                this.props.editHabit(data)
             }
         })
     } 
     
     render() {
+let dow = this.state.day
         return (
             <>
-            {!this.props.dow.done ?
-            <Button size="tiny"id="Tuesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
+            {!dow.done ?
+            <Button size="tiny"id="Tuesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
             <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
             :
-            <Button size="tiny"  id="Tuesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event)}} >
+            <Button size="tiny"  id="Tuesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>
             </Button>
             }

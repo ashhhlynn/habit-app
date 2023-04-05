@@ -4,10 +4,31 @@ import { Form, Grid, Button, Icon} from 'semantic-ui-react'
 
 class Thursday extends Component {
 
-    handlePatchDOW = (event) => {
+        
+    state = {
+        Thursday: false,
+        day: []
+    }
+
+    componentDidMount = () => {
+        if (this.props.habit.day_of_weeks.find(d => d.name === "Thursday")){
+        let dow = this.props.habit.day_of_weeks.find(d => d.name === "Thursday")
+
+ if (dow.done) {
+        this.setState({Thursday: true })}
+        else {
+            this.setState({Thursday: false })}        
+    }
+
+    }
+
+
+    handlePatchDOW = (event, id) => {
         event.preventDefault()
-        let t = this.props.dow.id
+        let t = id
         console.log(t)
+        this.setState({Thursday: true })
+
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -30,9 +51,11 @@ class Thursday extends Component {
         })
     }    
 
-    handleNotDoneDOW = (event) => {
+    handleNotDoneDOW = (event, id) => {
         event.preventDefault()
-        let t = this.props.dow.id
+        this.setState({Thursday: false })
+
+        let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -52,19 +75,23 @@ class Thursday extends Component {
             else {
                 window.alert("Thank you! Your order was submitted.")
                 console.log(data)
-                this.props.editHabit(data)
             }
         })
     } 
     
     render() {
+
+        let dow = this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday")
+
+
         return (
             <>
-            {!this.props.dow.done ?
-            <Button size="tiny"id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event)}} >
+                    {this.state.Thursday === false ?
+
+            <Button size="tiny"id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
             <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
             :
-            <Button size="tiny"  id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event)}} >
+            <Button size="tiny"  id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>
             </Button>
             }
