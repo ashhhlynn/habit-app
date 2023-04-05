@@ -3,6 +3,8 @@ import { Form, Grid, Button, Segment} from 'semantic-ui-react'
 import { createHabit } from './actions/rootActions'
 import HabitMenu from './HabitMenu'
 import { connect } from "react-redux"
+import Navbar from './Navbar'
+
 
 class CreateHabit extends Component {
     
@@ -60,7 +62,8 @@ class CreateHabit extends Component {
 
     render() {
         return (
-            <div>            
+            <div>  
+                <Navbar/>          
             <Grid stackable columns={2} >
             <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu/>

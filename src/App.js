@@ -45,7 +45,6 @@ class App extends Component {
     return (
       <Router>
       <div className="App">   
-        <Navbar />
           <Container style={{marginLeft:"4%", marginRight:"4%", marginTop:"4%"}}>
           <Routes>
             <Route exact path="/" element={<Landing />} />

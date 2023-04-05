@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import { deleteHabit } from './actions/rootActions'
 import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
+import Navbar from './Navbar'
 
 class DashboardHabits extends Component {
 
@@ -13,6 +14,7 @@ class DashboardHabits extends Component {
     )
       return (
         <div className="yourhabits">
+          <Navbar/>
           <Grid stackable columns={2} >
               <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu />

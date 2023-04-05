@@ -4,6 +4,8 @@ import { Segment, Header,  Grid } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
 import { fetchHabits } from './actions/rootActions'
+import Navbar from './Navbar'
+
 
 class ManageHabits extends Component {
        
@@ -21,6 +23,7 @@ class ManageHabits extends Component {
         })
         return (
             <div>
+                <Navbar/>
                 <Grid stackable columns={2} >
                         <Grid.Column style={{width:"300px"}}> 
                             <HabitMenu />
