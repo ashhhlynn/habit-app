@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import CurrentUser from './CurrentUser'
 import YourHabits from './DashboardHabits'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Button } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"
 import { fetchHabits } from './actions/rootActions'
+import { Link } from 'react-router-dom'
+
 
 class Landing extends Component {        
 
+
+    componentDidMount = () => {
+
+        this.props.checkUser()
+    }
     render() {
         return (
             !this.props.currentUser ?
@@ -19,7 +26,10 @@ class Landing extends Component {
                     </center> 
                </div> 
            :
-                <YourHabits/>
+           <center><Segment style={{width:"700px"}}>
+                    <h1>Welcome, {this.props.currentUser.name}!</h1> 
+                    <Link to="/habits"><Button>GET STARTED</Button></Link>
+                    </Segment> </center> 
         )     
     }
 }

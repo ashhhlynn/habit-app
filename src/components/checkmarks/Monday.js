@@ -70,7 +70,7 @@ class Monday extends Component {
             <>
             {!this.props.dow.done ?
             <Button size="tiny"id="Monday"   style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleDoneDOW(event)}} >
-            <Icon name="minus square outline" color="red" size="big"></Icon></Button>       
+            <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Monday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>

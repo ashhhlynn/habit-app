@@ -6,8 +6,7 @@ import { connect } from "react-redux"
 
 class HabitMenu extends Component {
 
-    handleLogout = (event) => {
-        event.preventDefault()
+    handleLogout = () => {
         localStorage.clear()
         this.props.logOut()
     }    
@@ -16,10 +15,10 @@ class HabitMenu extends Component {
         return (
           <div className="habitMenu">
                 <Menu className="nav" vertical style={{height:"100%"}}>
-                    <Menu.Item ><Link to="/yourhabits" style={{color:"#002A53"}}><Icon name="calendar check"></Icon>Dashboard</Link></Menu.Item>
-                    <Menu.Item><Link to="/habits"  style={{color:"#002A53"}}><Icon name="list"/>Manage Habits</Link></Menu.Item>
-                    <Menu.Item><Link to="/createhabit"  style={{color:"#002A53"}}><Icon name="external alternate"></Icon>Add Habit</Link></Menu.Item>
-                    <Menu.Item><Link to="/" as="button" style={{color:"#002A53"}} onClick={(e) => {this.handleLogout(e)}}><Icon name="sign out alternate"></Icon>Logout</Link></Menu.Item>
+                    <Menu.Item ><Link to="/yourhabits" style={{color:"#585858"}}><Icon name="calendar check"></Icon>Dashboard</Link></Menu.Item>
+                    <Menu.Item><Link to="/habits"  style={{color:"#585858 "}}><Icon name="list"/>Manage Habits</Link></Menu.Item>
+                    <Menu.Item><Link to="/createhabit"  style={{color:"#585858 "}}><Icon name="external alternate"></Icon>Add Habit</Link></Menu.Item>
+                    <Menu.Item><Link to="/" style={{color:"#585858 "}} onClick={this.handleLogout}><Icon name="sign out alternate"></Icon>Logout</Link></Menu.Item>
                 </Menu>
           </div>
         )
