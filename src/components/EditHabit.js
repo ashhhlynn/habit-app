@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Menu, Icon, Button } from 'semantic-ui-react'
+import { Form,  Button } from 'semantic-ui-react'
 import { patchHabit } from './actions/rootActions'
 import { connect } from "react-redux"
 
@@ -14,17 +14,17 @@ class EditHabit extends Component {
         id: this.props.habit.id,
         habitDays: [],
         Monday: false,
-Tuesday: false,
-Wednesday: false,
-Thursday: false,
-Friday: false,
-Saturday: false,
-Sunday: false,
-      }
+        Tuesday: false,
+        Wednesday: false,
+        Thursday: false,
+        Friday: false,
+        Saturday: false,
+        Sunday: false,
+    }
   }
 
   componentDidMount = () => {
-
+console.log(this.props.habit.day_of_weeks)
   }
         
     handleChange = (event) => {
@@ -70,6 +70,7 @@ Sunday: false,
               },
               body: JSON.stringify({
                 title: habit.title,
+                day_of_weeks: habit.habitDays,
                 description: habit.description,
                 user_id: this.props.currentUser.id
               })
@@ -80,7 +81,6 @@ Sunday: false,
                   window.alert(data.message)
               }
               else {
-                  console.log(data)
                   window.alert("Thank you! Your habit was updated.")
                   this.props.patchHabit(data)
                   this.props.handleClose();

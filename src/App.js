@@ -15,8 +15,9 @@ import { fetchHabits } from './components/actions/rootActions'
 class App extends Component {
 
   componentDidMount = () => {
-    this.props.fetchHabits()
+  
     if (localStorage.token){
+      this.props.fetchHabits()
     const token = localStorage.token;
     console.log(token)
     return fetch('http://localhost:3000/profile', {

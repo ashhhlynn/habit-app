@@ -1,9 +1,25 @@
 export const fetchHabits = () => {
     return (dispatch) => {
-        dispatch({ type: "FETCH_PRODUCTS_REQUEST" })
-        fetch("http://localhost:3000/habits")
-            .then(response => response.json())
-            .then(habits => {dispatch({ type: "FETCH_HABITS", habits })
+        dispatch({ type: "FETCH_HABITS_REQUEST" })
+        const token = localStorage.token;
+        console.log(token)
+        return fetch('http://localhost:3000/profile', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.message) {
+                localStorage.removeItem("token")
+            }
+            else {
+                dispatch({ type: "FETCH_HABITS", habits: data.user.habits })
+
+            }            
         })
     }
 }
