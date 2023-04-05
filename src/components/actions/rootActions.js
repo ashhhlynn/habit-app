@@ -48,6 +48,7 @@ export const createUser = (userData) => {
 export const checkUser = (userData) => {
     return (dispatch) => {
         dispatch({ type: "SET_CURRENT_USER", user: userData })
+
     }
 }
 

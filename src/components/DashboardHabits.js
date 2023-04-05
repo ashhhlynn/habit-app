@@ -5,8 +5,17 @@ import { deleteHabit } from './actions/rootActions'
 import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
 import Navbar from './Navbar'
+import { fetchHabits } from './actions/rootActions'
 
 class DashboardHabits extends Component {
+
+
+  
+  componentDidMount = () => {
+    this.props.fetchHabits()
+    
+}
+
 
   render() {
     const productGroup = this.props.habits.map ( 
@@ -53,7 +62,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
       deleteHabit: (habit) =>  { dispatch(deleteHabit(habit)) }, 
+      fetchHabits: () =>  { dispatch(fetchHabits()) }
     }
 }
+
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardHabits)

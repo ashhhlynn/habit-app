@@ -21,7 +21,7 @@ class DashboardHabitsDOW extends Component {
                         <Monday habit={this.props.habit}/>
                     </Table.Cell>
     :
-    <Table.Cell>k
+    <Table.Cell>
 </Table.Cell>}
 
 
@@ -30,7 +30,7 @@ class DashboardHabitsDOW extends Component {
                         < Tuesday habit={this.props.habit}/>
                     </Table.Cell>
                 :  
-                    <Table.Cell>k
+                    <Table.Cell>
                     </Table.Cell>
                 }
             
@@ -41,7 +41,7 @@ class DashboardHabitsDOW extends Component {
                         < Wednesday habit={this.props.habit}/>
                     </Table.Cell>
                 :  
-                    <Table.Cell>k
+                    <Table.Cell>
                     </Table.Cell>
                 }             
               

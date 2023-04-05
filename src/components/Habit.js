@@ -25,7 +25,7 @@ class Habit extends Component {
             },
         })   
         .then(
-            window.alert("Thank you! Your product was deleted."),
+            window.alert("Thank you! Your habit was deleted."),
             this.props.deleteHabit(id)
         )
     }           

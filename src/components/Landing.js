@@ -15,6 +15,12 @@ class Landing extends Component {
         modalOpen: false
       }
 
+      componentDidMount = () => {
+        if (this.props.currentUser.length !== 0)
+        {this.props.fetchHabits()
+        }
+    }
+    
 
       handleOpen = () => {
         this.setState({ modalOpen: true });
@@ -24,10 +30,7 @@ class Landing extends Component {
         this.setState({ modalOpen: false })
       }
 
-    componentDidMount = () => {
-
-        this.props.checkUser()
-    }
+  
     render() {
         return (
 
@@ -35,7 +38,14 @@ class Landing extends Component {
 <div>
 <center>
     
-<Modal 
+
+<img style={{width:"280px", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png"/>
+
+
+<br></br>{this.props.currentUser.length === 0 ?
+<>
+<Button onClick={this.handleOpen} circular style={{backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">START</Button>
+<Modal style={{width:"500px"}}
     open={this.state.modalOpen}
     onClose={this.handleClose}
     closeIcon>
@@ -43,12 +53,7 @@ class Landing extends Component {
       <CurrentUser handleClose={this.handleClose} />
     </Modal.Content>
   </Modal>
-<img style={{width:"280px", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png"/>
-
-
-<br></br>{!this.props.currentUser ?
-<Button onClick={this.handleOpen} circular style={{backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">START</Button>
-
+  </>
 :
 <Link to="/habits"><Button  circular style={{backgroundColor:"#FFFFFF"}} size="massive" >TRACK HABITS</Button></Link>
 

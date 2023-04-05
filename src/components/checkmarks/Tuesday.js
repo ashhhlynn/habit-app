@@ -30,6 +30,8 @@ else {
 
     handlePatchDOW = (event, id) => {
         event.preventDefault()
+        this.setState({Tuesday: true })
+
         let t = id
         console.log(t)
         const token = localStorage.token;
@@ -49,13 +51,15 @@ else {
                 window.alert(data.message)
             }
             else {
-                window.alert("Thank you! Your order was submitted.")
+                window.alert("Success!")
             }
         })
     }    
 
     handleNotDoneDOW = (event, id) => {
         event.preventDefault()
+        this.setState({Tuesday: false })
+
         let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
@@ -74,7 +78,7 @@ else {
                 window.alert(data.message)
             }
             else {
-                window.alert("Thank you! Your order was submitted.")
+                window.alert("Success!")
                 console.log(data)
             }
         })
@@ -84,7 +88,7 @@ else {
 let dow = this.state.day
         return (
             <>
-            {!dow.done ?
+            {this.state.Tuesday === false ?
             <Button size="tiny"id="Tuesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
             <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
             :

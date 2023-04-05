@@ -46,7 +46,7 @@ class Monday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Thank you! Your order was submitted.")
+                window.alert("Success!")
             }
         })
     }    
@@ -72,8 +72,8 @@ class Monday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Thank you! Your order was submitted.")
-                console.log(data)
+                window.alert("Success!")
+                                console.log(data)
 
             }
         })

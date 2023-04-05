@@ -66,7 +66,8 @@ Sunday: false,
                 body: JSON.stringify({
                    title: habit.title,
                    description: habit.description,
-                    day_of_weeks: habit.habitDays
+                    day_of_weeks: habit.habitDays,
+                    user_id: this.props.currentUser.id
                 })
                 })
                 .then(resp => resp.json())
@@ -75,7 +76,7 @@ Sunday: false,
                     window.alert(data.message)
                 }
                    else {
-                    window.alert('Thank you! Your product was created!')
+                    window.alert('Thank you! Your habit was created!')
                     this.props.createHabit(data)
                    }
             }
@@ -90,7 +91,7 @@ Sunday: false,
                 <HabitMenu/>
             </Grid.Column>
             <Grid.Column>
-                <Segment style={{marginLeft: "9%", width:"700px"}}>
+                <Segment style={{marginLeft:"5%", width:"737px"}}>
                     <h2>Create Habit</h2>
                     <Form onSubmit= { (event) => {this.handleSubmit(event, this.state)}}>
                     <Form.Input
@@ -109,13 +110,7 @@ Sunday: false,
                     value={this.state.description} 
                     onChange={this.handleChange}
                     />
-                    <Form.Input
-                    type="text"
-                    id="startday"
-                    placeholder="start day"
-                    value={this.state.startday} 
-                    onChange={this.handleChange}
-                    />                   
+                                 
 
                     {this.state.Monday === false ?
                     <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>M</Button>
@@ -169,10 +164,17 @@ Sunday: false,
     }
 }
 
+
+const mapStateToProps = (state) => {
+    return { 
+        currentUser: state.currentUser
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return { 
       createHabit: (habit) =>  { dispatch(createHabit(habit)) }, 
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateHabit)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateHabit)

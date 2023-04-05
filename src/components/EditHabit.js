@@ -12,12 +12,19 @@ class EditHabit extends Component {
         description: this.props.habit.description,
         days: this.props.habit.days,
         id: this.props.habit.id,
-        startday: this.props.habit.startday
+        habitDays: [],
+        Monday: false,
+Tuesday: false,
+Wednesday: false,
+Thursday: false,
+Friday: false,
+Saturday: false,
+Sunday: false,
       }
   }
 
   componentDidMount = () => {
-    
+
   }
         
     handleChange = (event) => {
@@ -25,6 +32,28 @@ class EditHabit extends Component {
         [event.target.id]: event.target.value
       })
     }
+
+    handleDOW = (event) => {
+      event.preventDefault()
+      console.log(event.target.id)
+      this.state.habitDays.push(event.target.id)
+      console.log(this.state.habitDays)
+      this.setState({
+      [event.target.id]: true })
+  }
+
+  
+  handleDOWNo = (event) => {
+      event.preventDefault()
+      let o = this.state.habitDays.find(k => k === event.target.id)
+      console.log(o)
+   let newHd =   this.state.habitDays.filter(h => h !== event.target.id)
+      this.setState({
+      [event.target.id]: false,
+          habitDays: newHd
+      })
+      console.log(this.state.habitDays)
+  }
 
     handleSubmit = (event, habit) => {
         event.preventDefault()
@@ -42,6 +71,7 @@ class EditHabit extends Component {
               body: JSON.stringify({
                 title: habit.title,
                 description: habit.description,
+                user_id: this.props.currentUser.id
               })
           })
           .then(resp => resp.json())
@@ -51,7 +81,7 @@ class EditHabit extends Component {
               }
               else {
                   console.log(data)
-                  window.alert("Thank you! Your product was updated.")
+                  window.alert("Thank you! Your habit was updated.")
                   this.props.patchHabit(data)
                   this.props.handleClose();
               }
@@ -81,56 +111,46 @@ class EditHabit extends Component {
                     value={this.state.description} 
                     onChange={this.handleChange}
                     />
-                    <Form.Input
+                  {this.state.Monday === false ?
+                    <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>M</Button>
+                    :
+                    <Button id="Monday" circular color="teal" onClick={this.handleDOWNo}>M</Button>
+                    }
+
+                {this.state.Tuesday === false ?
+                    <Button id="Tuesday" value="Tuesday" basic circular color="teal" onClick={this.handleDOW}>T</Button>
+                    :
+                <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>T</Button>
+                }
                 
-                    type="text"
-                    id="startday"
-                    placeholder="start day"
-                    value={this.state.startday} 
-                    onChange={this.handleChange}
-                    />
-                        {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Monday") ?  
-                      <Button circular color="teal">M</Button>
+                {this.state.Wednesday === false ?
+                
+                    <Button id="Wednesday" basic circular color="teal" onClick={this.handleDOW}>W</Button>
+:
+<Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>W</Button>}
+
+{this.state.Thursday === false ?
+                    <Button id="Thursday" basic circular color="teal" onClick={this.handleDOW} >TR</Button>
+            :
+<Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >TR</Button>}
+
+{this.state.Friday === false ?
+                    <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >F</Button>
+                    : 
+                    <Button id="Friday" circular color="teal" onClick={this.handleDOWNo} >F</Button>}
+{this.state.Saturday === false ?
+
+                    <Button id="Saturday" basic circular color="teal" onClick={this.handleDOW} >SA</Button>
                     :
-                    <Button circular color="teal" basic>M</Button>
-                    }
-                  {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Tuesday") ?  
-                      <Button circular color="teal">T</Button>
-                    :
-                    <Button circular color="teal" basic>T</Button>
-                    }
-                    {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Wednesday") ?  
-                      <Button circular color="teal">W</Button>
-                    :
-                    <Button circular color="teal" basic>W</Button>
-                    }
-                      {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") ?  
-                      <Button circular color="teal">TR</Button>
-                    :
-                    <Button circular color="teal" basic>TR</Button>
-                    }
-                    {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Friday") ?  
-                      <Button circular color="teal">F</Button>
-                    :
-                    <Button circular color="teal" basic>F</Button>
-                    }
-                        {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Saturday") ?  
-                      <Button circular color="teal">SA</Button>
-                    :
-                    <Button circular color="teal" basic>SA</Button>
-                    }
-                    {
-                        this.props.habit.day_of_weeks.find(hd => hd.name === "Sunday") ?  
-                      <Button circular color="teal">S</Button>
-                    :
-                    <Button circular color="teal" basic>S</Button>
-                    }
+                    <Button id="Saturday" circular color="teal" onClick={this.handleDOWNo} >SA</Button>}
+{this.state.Sunday === false ?
+                    <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>S</Button>
+                   :
+                   <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
+} 
+                       
+
+
                     <br></br><br></br>
                    <Form.Button className="formButtons" inverted style={{width:"250px", color:"white", backgroundColor:"#585858"}} content='Submit'/>       
                 </Form>
@@ -140,10 +160,17 @@ class EditHabit extends Component {
     }
 }
 
+
+const mapStateToProps = (state) => {
+  return { 
+      currentUser: state.currentUser
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return { 
       patchHabit: (habit) =>  { dispatch(patchHabit(habit)) }, 
     }
 }
 
-export default connect(null, mapDispatchToProps)(EditHabit)
+export default connect(mapStateToProps, mapDispatchToProps)(EditHabit)

@@ -37,6 +37,8 @@ class Login extends Component {
                     localStorage.token = data.jwt;
                     console.log(data)
                     this.props.getExistingUser(data.user)
+                    this.props.handleClose();
+
                 }
             })
         }

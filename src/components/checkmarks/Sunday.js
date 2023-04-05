@@ -46,7 +46,7 @@ class Sunday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Thank you! Your order was submitted.")
+                window.alert("Success!")
             }
         })
     }    
@@ -73,7 +73,7 @@ class Sunday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Thank you! Your order was submitted.")
+                window.alert("Success!")
                 console.log(data)
             }
         })
