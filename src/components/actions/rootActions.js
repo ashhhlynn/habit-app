@@ -18,7 +18,6 @@ export const fetchHabits = () => {
             }
             else {
                 dispatch({ type: "FETCH_HABITS", habits: data.user.habits })
-
             }            
         })
     }
@@ -52,6 +51,7 @@ export const deleteHabit = (id) => {
 export const getExistingUser = (userData) => {
     return (dispatch) => {
         dispatch({ type: "SET_CURRENT_USER", user: userData })
+
     }
 }
 
@@ -61,10 +61,29 @@ export const createUser = (userData) => {
     }
 }
 
-export const checkUser = (userData) => {
+export const checkUser = () => {
     return (dispatch) => {
-        dispatch({ type: "SET_CURRENT_USER", user: userData })
-
+        const token = localStorage.token;
+        console.log(token)
+        return fetch('http://localhost:3000/profile', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        })
+        .then(resp => resp.json())
+        .then(data => {
+          if (data.message) {
+              localStorage.removeItem("token")
+          }
+          else {
+              console.log(data.user)
+              dispatch({ type: "SET_CURRENT_USER", user: data.user })
+              dispatch({ type: "USER_HABITS", habits: data.user.habits })
+          }            
+        })
     }
 }
 

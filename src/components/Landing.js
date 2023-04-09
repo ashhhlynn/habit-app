@@ -12,12 +12,6 @@ class Landing extends Component {
         modalOpen: false
       }
 
-      componentDidMount = () => {
-        if (this.props.currentUser.length !== 0) {
-            this.props.fetchHabits()
-        }
-    }
-
     handleOpen = () => {
         this.setState({ modalOpen: true });
     }
@@ -25,7 +19,6 @@ class Landing extends Component {
     handleClose = () => {
         this.setState({ modalOpen: false })
     }
-
   
     render() {
         return (

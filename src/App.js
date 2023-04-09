@@ -15,39 +15,17 @@ import { fetchHabits } from './components/actions/rootActions'
 class App extends Component {
 
   componentDidMount = () => {
-  
-    if (localStorage.token){
-      this.props.fetchHabits()
-    const token = localStorage.token;
-    console.log(token)
-    return fetch('http://localhost:3000/profile', {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Authorization': `Bearer ${token}`
-    },
-    })
-    .then(resp => resp.json())
-    .then(data => {
-        if (data.message) {
-            localStorage.removeItem("token")
-        }
-        else {
-            this.setState({currentUser: data.user})
-            console.log(data.user)
-            this.props.checkUser(data.user)
-        }            
-    })
+    if (localStorage.token) {
+       this.props.checkUser()
+    }            
   }
-}
 
   render() {
     return (
       <Router>
       <div className="App">   
       <Navbar/>
-          <Container style={{marginLeft:"4%", marginRight:"4%", marginTop:"4%"}}>
+          <Container style={{marginTop:"4%"}}>
           <Routes>
             <Route exact path="/" element={<Landing />} />
             <Route exact path="/habits" element={<ManageHabits />} />
@@ -58,13 +36,13 @@ class App extends Component {
       </Container>
     </div>
     </Router>
-  );
+    )
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    checkUser: (data) =>  { dispatch(checkUser(data)) }, 
+    checkUser: () =>  { dispatch(checkUser()) }, 
     fetchHabits: () =>  { dispatch(fetchHabits()) }
   }
 }

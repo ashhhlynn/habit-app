@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import { Table, Grid } from 'semantic-ui-react'
+import { Table, Grid, Segment } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import { deleteHabit } from './actions/rootActions'
 import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
 import { fetchHabits } from './actions/rootActions'
+import { checkUser } from './actions/rootActions'
 
 class DashboardHabits extends Component {
 
-  componentDidMount = () => {
-    this.props.fetchHabits() 
-  }
 
   render() {
     const productGroup = this.props.habits.map ( 
@@ -18,7 +16,10 @@ class DashboardHabits extends Component {
     )
       return (
         <div className="yourhabits">
+                    <Segment style={{marginTop:"-4.5%", opacity:"92%"}}>
+
           <Grid stackable columns={2} >
+
               <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu />
               </Grid.Column>
@@ -41,7 +42,7 @@ class DashboardHabits extends Component {
                   </Table.Body>
                 </Table><br></br>        
               </Grid.Column>
-            </Grid>
+            </Grid></Segment>
           </div>
         )
     }
@@ -56,7 +57,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
       deleteHabit: (habit) =>  { dispatch(deleteHabit(habit)) }, 
-      fetchHabits: () =>  { dispatch(fetchHabits()) }
+      fetchHabits: () =>  { dispatch(fetchHabits()) },
+      checkUser: () =>  { dispatch(checkUser()) }
     }
 }
 

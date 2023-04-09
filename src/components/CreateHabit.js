@@ -84,13 +84,15 @@ class CreateHabit extends Component {
     render() {
         return (
             <div>  
+                    <Segment style={{marginTop:"-4.5%", opacity:"92%"}}>
             <Grid stackable columns={2} >
+            
             <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu/>
             </Grid.Column>
             <Grid.Column>
-                <Segment style={{marginLeft:"5%", width:"737px"}}>
-                    <h2>Create Habit</h2>
+                <Segment style={{marginLeft:"5%", width:"600px"}}>
+                    <h2 style={{fontWeight:"normal"}}>Create Habit</h2>
                     <Form onSubmit= { (event) => {this.handleSubmit(event, this.state)}}>
                     <Form.Input
                     required
@@ -146,11 +148,14 @@ class CreateHabit extends Component {
                         <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
                     } 
                    <br></br><br></br>
-                   <Form.Button inverted style={{width:"250px", color:"white", backgroundColor:"#585858"}}className="formButtons" content='Submit'/>        
+                   <Form.Button inverted style={{width:"250px", color:"white", backgroundColor:"#585858"}}className="formButtons" content='SAVE HABIT'/>        
                 </Form>
                 </Segment>           
             </Grid.Column>
             </Grid>
+            <br></br><br></br><br></br><br></br>
+
+            </Segment>
         </div>
         )
     }
