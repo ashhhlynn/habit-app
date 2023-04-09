@@ -22,8 +22,8 @@ class Habit extends Component {
 
     checkDays = () => { 
         if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")){
-        this.setState ({
-            Monday: true 
+            this.setState ({
+                Monday: true 
             })
         }
         if (this.props.habit.day_of_weeks.find(d => d.name === "Tuesday")){
@@ -33,7 +33,7 @@ class Habit extends Component {
         }
         if (this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")){
             this.setState ({
-                    Wednesday: true 
+                Wednesday: true 
             })
         }
         if (this.props.habit.day_of_weeks.find(d => d.name === "Thursday")){
@@ -120,7 +120,7 @@ class Habit extends Component {
             {this.state.Saturday === false ?
                 <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="white">S</Label>     
             :
-            <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">S</Label>     
+                <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">S</Label>     
             }
             {this.state.Sunday === false ?
                 <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="white">S </Label>     

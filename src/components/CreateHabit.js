@@ -29,7 +29,7 @@ class CreateHabit extends Component {
         event.preventDefault()
         this.state.habitDays.push(event.target.id)
         this.setState ({
-        [event.target.id]: true 
+            [event.target.id]: true 
         })
     }
     
@@ -68,7 +68,7 @@ class CreateHabit extends Component {
                     window.alert(data.message)
                 }
                    else {
-                    window.alert('Thank you! Your habit was created!')
+                    window.alert('Your habit was created!')
                     this.props.createHabit(data)
                    }
             }
