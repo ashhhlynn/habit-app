@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { Form } from "semantic-ui-react"
 import { getExistingUser } from "./actions/rootActions"
 import { checkUser } from "./actions/rootActions"
-
 import { connect } from "react-redux"
 
 class Login extends Component {
@@ -38,7 +37,6 @@ class Login extends Component {
                 else {
                     localStorage.token = data.jwt;
                     console.log(data)
-                    this.props.getExistingUser(data.user)
                     this.props.checkUser()
                     this.props.handleClose();
                 }
@@ -49,7 +47,7 @@ class Login extends Component {
     render() {
         return (
             <>          
-                <h2>Sign In</h2>
+                <h2 style={{fontWeight:"normal"}}>Sign In</h2>
                 <Form onSubmit={ (event) => { this.handleSubmit(event, this.state)}}>
                     <Form.Input
                     required

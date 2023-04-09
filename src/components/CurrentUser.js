@@ -21,8 +21,8 @@ function CurrentUser({ onLogin }) {
                         <Link onClick={() => setShowLogin(true)}> Login</Link>
                     </p>
                 </>
-            )}    </center>       
-        </div>
+            )}   
+        </center></div>
     )
 }
 

@@ -25,7 +25,7 @@ class Habit extends Component {
             },
         })   
         .then(
-            window.alert("Thank you! Your habit was deleted."),
+            window.alert("Your habit was deleted."),
             this.props.deleteHabit(id)
         )
     }           
@@ -41,28 +41,27 @@ class Habit extends Component {
     render() {
         const dow = this.props.habit.day_of_weeks.map(i => {
             return (
-            
-      
-            <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">{i.name.charAt(0)} </Label> 
-            
-          
+                <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">{i.name.charAt(0)} </Label>     
             )
         }) 
         return (
           <>
             <Label.Group style={{marginTop: "-3.5%", textAlign:"right"}}>
-             {dow} 
+                {dow} 
                 <Button color="teal" floated="right" style={{ justifyContent: "center", textAlign:"center"}} basic size="tiny" onClick={this.handleOpenCp}>  <Icon style={{ textAlign:"center"}} name="pencil alternate"/></Button>
                 <Button color="teal" floated="right" style={{ textAlign:"center"}} basic size="tiny" onClick={this.handleDelete}>  <Icon style={{ textAlign:"center"}} name="trash"></Icon></Button>
-                </Label.Group>   
-                 <Modal 
-                 open={this.state.modalOpenCp}
-                 onClose={this.handleCloseCp}
-                 closeIcon>
-                     <Modal.Content>
-                         <EditHabit habit={this.props.habit} handleClose={this.handleCloseCp} />
-                     </Modal.Content>
-                 </Modal></>
+            </Label.Group>   
+            <Modal 
+                style={{width: "600px"}}
+                open={this.state.modalOpenCp}
+                onClose={this.handleCloseCp}
+                closeIcon
+            >
+                <Modal.Content>
+                    <EditHabit habit={this.props.habit} handleClose={this.handleCloseCp} />
+                </Modal.Content>
+            </Modal>
+        </>
         )
     }
 }

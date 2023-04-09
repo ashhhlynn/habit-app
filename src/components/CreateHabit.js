@@ -22,30 +22,26 @@ class CreateHabit extends Component {
 
     handleChange = (event) => {
         this.setState ({
-        [event.target.id]: event.target.value
+            [event.target.id]: event.target.value
         })
     }
 
     handleDOW = (event) => {
         event.preventDefault()
-        console.log(event.target.id)
         this.state.habitDays.push(event.target.id)
-        console.log(this.state.habitDays)
-        this.setState({
-        [event.target.id]: true })
+        this.setState ({
+        [event.target.id]: true 
+        })
     }
-
     
     handleDOWNo = (event) => {
         event.preventDefault()
         let o = this.state.habitDays.find(k => k === event.target.id)
-        console.log(o)
         let newHd =   this.state.habitDays.filter(h => h !== event.target.id)
         this.setState ({
             [event.target.id]: false,
             habitDays: newHd
         })
-        console.log(this.state.habitDays)
     }
 
     handleSubmit = (event, habit) => {
@@ -82,81 +78,74 @@ class CreateHabit extends Component {
     } 
 
     render() {
-        return (
-            <div>  
-                    <Segment style={{marginTop:"-4.5%", opacity:"92%"}}>
-            <Grid stackable columns={2} >
-            
-            <Grid.Column style={{width:"300px"}}> 
-                <HabitMenu/>
-            </Grid.Column>
-            <Grid.Column>
-                <Segment style={{marginLeft:"5%", width:"600px"}}>
-                    <h2 style={{fontWeight:"normal"}}>Create Habit</h2>
-                    <Form onSubmit= { (event) => {this.handleSubmit(event, this.state)}}>
-                    <Form.Input
-                    required
-                    type="text"
-                    id="title"
-                    placeholder="Title"
-                    value={this.state.title} 
-                    onChange={this.handleChange}
-                    />
-                    <Form.TextArea
-                    required
-                    type="text"
-                    id="description"
-                    placeholder="Description"
-                    value={this.state.description} 
-                    onChange={this.handleChange}
-                    />
-                                 
-
+        return ( 
+            <Segment style={{height:"100%", fit:"cover", marginLeft:"-7%", marginRight:"-6.5%", marginTop:"-1.4%", opacity:"87%"}}>
+                <Grid stackable columns={2} >
+                    <Grid.Column style={{width:"300px"}}> 
+                        <HabitMenu/>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Segment style={{marginLeft:"28%", width:"500px"}}>
+                        <h2 style={{fontWeight:"normal"}}>Create Habit</h2>
+                        <Form onSubmit= { (event) => {this.handleSubmit(event, this.state)}}>
+                        <Form.Input
+                        required
+                        type="text"
+                        id="title"
+                        placeholder="Title"
+                        value={this.state.title} 
+                        onChange={this.handleChange}
+                        />
+                        <Form.TextArea
+                        required
+                        type="text"
+                        id="description"
+                        placeholder="Description"
+                        value={this.state.description} 
+                        onChange={this.handleChange}
+                        />
                     {this.state.Monday === false ?
-                        <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>M</Button>
+                        <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>MO</Button>
                     :
-                        <Button id="Monday" circular color="teal" onClick={this.handleDOWNo}>M</Button>
+                        <Button id="Monday" circular color="teal" onClick={this.handleDOWNo}>MO</Button>
                     }
 
                     {this.state.Tuesday === false ?
-                        <Button id="Tuesday" value="Tuesday" basic circular color="teal" onClick={this.handleDOW}>T</Button>
+                        <Button id="Tuesday" circular value="Tuesday" basic  color="teal" onClick={this.handleDOW}>TU</Button>
                     :
-                        <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>T</Button>
+                        <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>TU</Button>
                     }
                 
                     {this.state.Wednesday === false ?
-                        <Button id="Wednesday" basic circular color="teal" onClick={this.handleDOW}>W</Button>
+                        <Button id="Wednesday" basic circular color="teal" onClick={this.handleDOW}>WE</Button>
                     :
-                        <Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>W</Button>}
+                        <Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>WE</Button>}
 
                     {this.state.Thursday === false ?
-                        <Button id="Thursday" basic circular color="teal" onClick={this.handleDOW} >TR</Button>
+                        <Button id="Thursday" basic circular color="teal" onClick={this.handleDOW} >TH</Button>
                     :
-                        <Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >TR</Button>}
+                        <Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >TH</Button>}
 
                     {this.state.Friday === false ?
-                        <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >F</Button>
+                        <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >FR</Button>
                     : 
-                        <Button id="Friday" circular color="teal" onClick={this.handleDOWNo} >F</Button>}
+                        <Button id="Friday" circular color="teal" onClick={this.handleDOWNo} >FR</Button>}
                     {this.state.Saturday === false ?
                         <Button id="Saturday" basic circular color="teal" onClick={this.handleDOW} >SA</Button>
                     :
                         <Button id="Saturday" circular color="teal" onClick={this.handleDOWNo} >SA</Button>}
                     {this.state.Sunday === false ?
-                        <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>S</Button>
+                        <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>SU</Button>
                     :
-                        <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
+                        <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>SU</Button>
                     } 
                    <br></br><br></br>
-                   <Form.Button inverted style={{width:"250px", color:"white", backgroundColor:"#585858"}}className="formButtons" content='SAVE HABIT'/>        
+                   <Form.Button inverted style={{width:"250px", fontWeight:"normal", color:"white", backgroundColor:"#585858"}}className="formButtons" content='SAVE HABIT'/>        
                 </Form>
                 </Segment>           
             </Grid.Column>
             </Grid>
-            <br></br><br></br><br></br><br></br>
-
             </Segment>
-        </div>
         )
     }
 }

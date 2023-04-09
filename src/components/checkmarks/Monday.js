@@ -46,7 +46,7 @@ class Monday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Success!")
+                window.alert("Marked as complete.")
             }
         })
     }    
@@ -72,7 +72,7 @@ class Monday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Success!")
+                window.alert("Marked as incomplete.")
                                 console.log(data)
 
             }

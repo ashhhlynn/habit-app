@@ -9,22 +9,19 @@ import { checkUser } from './actions/rootActions'
 
 class DashboardHabits extends Component {
 
-
   render() {
     const productGroup = this.props.habits.map ( 
       i=> <DashboardHabitsDOW habit={i} key={i.id}/>
     )
       return (
         <div className="yourhabits">
-                    <Segment style={{marginTop:"-4.5%", opacity:"92%"}}>
-
-          <Grid stackable columns={2} >
-
+          <Segment style={{height:"100%", fit:"cover", marginLeft:"-7%", marginRight:"-6.5%", marginTop:"-1.4%", opacity:"87%"}}>
+            <Grid stackable columns={2} >
               <Grid.Column style={{width:"300px"}}> 
                 <HabitMenu />
               </Grid.Column>
               <Grid.Column>
-                <Table style={{textAlign:"center", marginLeft:"5%"}} className="dash" celled>
+                <Table style={{textAlign:"center", marginLeft:"10%"}} className="dash" celled>
                   <Table.Header>
                     <Table.Row>
                       <Table.HeaderCell style={{width:"200px"}}>Habit</Table.HeaderCell>
@@ -40,11 +37,12 @@ class DashboardHabits extends Component {
                   <Table.Body>
                     {productGroup}
                   </Table.Body>
-                </Table><br></br>        
+                </Table>        
               </Grid.Column>
-            </Grid></Segment>
-          </div>
-        )
+            </Grid>
+          </Segment>
+        </div>
+      )
     }
 }
 

@@ -10,7 +10,7 @@ class Landing extends Component {
 
     state = {
         modalOpen: false
-      }
+    }
 
     handleOpen = () => {
         this.setState({ modalOpen: true });
@@ -24,26 +24,29 @@ class Landing extends Component {
         return (
             <div>
                 <center>
-                    <img style={{width:"280px", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png"/>
+                    <br></br><br></br>
+                    <img style={{width:"285px", marginTop: "1%", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png"/>
                     <br></br>
                     {this.props.currentUser.length === 0 ?
                     <>
-                    <Button onClick={this.handleOpen} circular style={{backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">START</Button>
-                    <Modal style={{width:"500px"}}
-                        open={this.state.modalOpen}
-                        onClose={this.handleClose}
-                        closeIcon>
-                        <Modal.Content>
-                            <CurrentUser handleClose={this.handleClose} />
-                        </Modal.Content>
-                    </Modal>
+                        <Button onClick={this.handleOpen} circular style={{fontWeight:"normal", backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">GET STARTED</Button>
+                        <Modal style={{width:"500px"}}
+                            open={this.state.modalOpen}
+                            onClose={this.handleClose}
+                            closeIcon
+                        >
+                            <Modal.Content>
+                                <CurrentUser handleClose={this.handleClose} />
+                            </Modal.Content>
+                        </Modal>
                     </>
                     :
-                    <Link to="/habits"><Button  circular style={{backgroundColor:"#FFFFFF"}} size="massive" >TRACK HABITS</Button></Link>
+                        <Link to="/habits">
+                            <Button inverted  circular style={{backgroundColor:"#FFFFFF", color: "grey", fontWeight:"normal"}}color="black" size="massive">TRACK HABITS</Button>
+                        </Link>
                     }
                 </center>
             </div>
-          
         )     
     }
 }

@@ -31,6 +31,7 @@ class Signup extends Component {
                 }
                 else {
                     localStorage.token = data.jwt;
+                    this.props.createUser(data.user)
                 }
             })
         }
@@ -44,7 +45,7 @@ class Signup extends Component {
     render() {
         return (
             <>
-            <h2 >Register</h2>
+            <h2 style={{fontWeight:"normal"}}>Register</h2>
             <Form onSubmit={ (event) => {this.handleSubmit(event, this.state)} }>              
                 <Form.Input
                     required

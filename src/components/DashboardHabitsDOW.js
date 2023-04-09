@@ -38,7 +38,6 @@ class DashboardHabitsDOW extends Component {
                     <Table.Cell>
                     </Table.Cell>
                 }             
-              
                 {this.props.habit.day_of_weeks.find(hd => hd.name === "Thursday") ? 
                     <Table.Cell>
                         < Thursday habit={this.props.habit}/>
