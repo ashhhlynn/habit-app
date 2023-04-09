@@ -122,8 +122,8 @@ class Habit extends Component {
             :            
                 <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">S </Label>     
             }
-            <Button color="teal" floated="right" style={{ justifyContent: "center", textAlign:"center"}} basic size="tiny" onClick={this.handleOpenCp}>  <Icon style={{ textAlign:"center"}} name="pencil alternate"/></Button>
-            <Button color="teal" floated="right" style={{ textAlign:"center"}} basic size="tiny" onClick={this.handleDelete}>  <Icon style={{ textAlign:"center"}} name="trash"></Icon></Button>
+            <Button color="teal" floated="right" style={{ justifyContent: "center", textAlign:"center"}} basic size="tiny" onClick={this.handleOpenCp}>  <Icon style={{ textAlign:"center", marginLeft:"2%"}} name="pencil alternate"/></Button>
+            <Button color="teal" floated="right" style={{ textAlign:"center"}} basic size="tiny" onClick={this.handleDelete}>  <Icon style={{ textAlign:"center", marginLeft:"3%"}} name="trash"></Icon></Button>
             </Label.Group>   
             <Modal 
                 style={{width: "600px"}}
