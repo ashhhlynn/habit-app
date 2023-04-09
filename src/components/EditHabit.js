@@ -36,35 +36,35 @@ class EditHabit extends Component {
         })
     }
     if (this.props.habit.day_of_weeks.find(d => d.name === "Tuesday")){
-        this.setState ({
-            Tuesday: true 
-            })
-        }
-        if (this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")){
-            this.setState ({
-                Wednesday: true 
-                })
-            }
-            if (this.props.habit.day_of_weeks.find(d => d.name === "Thursday")){
-                this.setState ({
-                    Thursday: true 
-                    })
-                }
-            if (this.props.habit.day_of_weeks.find(d => d.name === "Friday")){
-                this.setState ({
-                    Friday: true 
-                    })
-                }
-            if (this.props.habit.day_of_weeks.find(d => d.name === "Saturday")){
-                this.setState ({
-                    Saturday: true 
-                    })
-                }
-            if (this.props.habit.day_of_weeks.find(d => d.name === "Sunday")){
-                this.setState ({
-                   Sunday: true 
-                    })
-        }    
+      this.setState ({
+        Tuesday: true 
+      })
+    }
+    if (this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")){
+      this.setState ({
+        Wednesday: true 
+      })
+    }
+    if (this.props.habit.day_of_weeks.find(d => d.name === "Thursday")){
+      this.setState ({
+        Thursday: true 
+      })
+    }
+    if (this.props.habit.day_of_weeks.find(d => d.name === "Friday")){
+      this.setState ({
+        Friday: true 
+      })
+    }
+    if (this.props.habit.day_of_weeks.find(d => d.name === "Saturday")){
+      this.setState ({
+        Saturday: true 
+      })
+    }
+    if (this.props.habit.day_of_weeks.find(d => d.name === "Sunday")){
+      this.setState ({
+        Sunday: true 
+      })
+    }    
   }
         
   handleChange = (event) => {
@@ -79,7 +79,7 @@ class EditHabit extends Component {
     this.state.habitDays.push(event.target.id)
     console.log(this.state.habitDays)
     this.setState({
-    [event.target.id]: true 
+      [event.target.id]: true 
     })
   }
 
@@ -98,10 +98,8 @@ class EditHabit extends Component {
   handleSubmit = (event, habit) => {
     event.preventDefault()
     const token = localStorage.token;
-          console.log(token)
-          console.log(habit.id)
-          let id = habit.id
-          fetch(`http://localhost:3000/habits/${id}`, {  
+    let id = habit.id
+    fetch(`http://localhost:3000/habits/${id}`, {  
               method: 'PATCH',
               headers: {
                   'Content-Type': 'application/json',
@@ -125,8 +123,8 @@ class EditHabit extends Component {
                   this.props.patchHabit(data)
                   this.props.handleClose();
               }
-          }
-        )
+        }
+      )
     }   
 
     render() {
@@ -135,66 +133,60 @@ class EditHabit extends Component {
             <center>
               <h2 style={{fontWeight:"normal"}}>Edit Habit</h2>
               <Form onSubmit= { (event) => {this.handleSubmit(event, this.state)}}>
-                    <Form.Input
+                  <Form.Input
                     required
                     type="text"
                     id="title"
                     placeholder="Title"
                     value={this.state.title} 
                     onChange={this.handleChange}
-                    />
-                    <Form.TextArea
+                  />
+                  <Form.TextArea
                     required
                     type="text"
                     id="description"
                     placeholder="Description"
                     value={this.state.description} 
                     onChange={this.handleChange}
-                    />
+                  />
                   {this.state.Monday === false ?
                     <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>M</Button>
-                    :
+                  :
                     <Button id="Monday" circular color="teal" onClick={this.handleDOWNo}>M</Button>
-                    }
-
-                {this.state.Tuesday === false ?
+                  }
+                  {this.state.Tuesday === false ?
                     <Button id="Tuesday" value="Tuesday" basic circular color="teal" onClick={this.handleDOW}>T</Button>
-                    :
-                <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>T</Button>
-                }
-                
-                {this.state.Wednesday === false ?
-                
+                  :
+                    <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>T</Button>
+                  }
+                  {this.state.Wednesday === false ?
                     <Button id="Wednesday" basic circular color="teal" onClick={this.handleDOW}>W</Button>
-:
-<Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>W</Button>}
-
-{this.state.Thursday === false ?
+                  :
+                    <Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>W</Button>}
+                  {this.state.Thursday === false ?
                     <Button id="Thursday" basic circular color="teal" onClick={this.handleDOW} >T</Button>
-            :
-<Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >T</Button>}
-
-{this.state.Friday === false ?
+                    :
+                    <Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >T</Button>}
+                  {this.state.Friday === false ?
                     <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >F</Button>
                     : 
                     <Button id="Friday" circular color="teal" onClick={this.handleDOWNo} >F</Button>}
-{this.state.Saturday === false ?
-
+                  {this.state.Saturday === false ?
                     <Button id="Saturday" basic circular color="teal" onClick={this.handleDOW} >S</Button>
-                    :
+                  :
                     <Button id="Saturday" circular color="teal" onClick={this.handleDOWNo} >S</Button>}
-{this.state.Sunday === false ?
+                  {this.state.Sunday === false ?
                     <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>S</Button>
-                   :
-                   <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
-} 
-                    <br></br><br></br>
-                   <Form.Button className="formButtons" inverted style={{width:"250px", fontWeight:"normal", color:"white", backgroundColor:"#585858"}} content='SAVE HABIT'/>       
-                </Form>
-              </center>
-            </div>
+                  :
+                  <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
+                  } 
+                  <br></br><br></br>
+                <Form.Button className="formButtons" inverted style={{width:"250px", fontWeight:"normal", color:"white", backgroundColor:"#585858"}} content='SAVE HABIT'/>       
+              </Form>
+            </center>
+          </div>
         )
-    }
+  }
 }
 
 const mapStateToProps = (state) => {

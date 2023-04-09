@@ -3,7 +3,6 @@ import {  Button, Icon} from 'semantic-ui-react'
 
 class Friday extends Component {
 
-        
     state = {
         Friday: false,
         day: []
@@ -11,23 +10,20 @@ class Friday extends Component {
 
     componentDidMount = () => {
         if (this.props.habit.day_of_weeks.find(d => d.name === "Friday")){
-        let dow = this.props.habit.day_of_weeks.find(d => d.name === "Friday")
-
- if (dow.done) {
-        this.setState({Fridayy: true })}
-        else {
-            this.setState({Friday: false })}        
+            let dow = this.props.habit.day_of_weeks.find(d => d.name === "Friday")
+            if (dow.done) {
+                this.setState({Fridayy: true })}
+            else {
+                this.setState({Friday: false })
+            }        
+        }
     }
-
-    }
-
 
     handlePatchDOW = (event, id) => {
         event.preventDefault()
         let t = id
         console.log(t)
         this.setState({Friday: true })
-
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
             method: 'PATCH',
@@ -45,7 +41,7 @@ class Friday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Success!")
+                window.alert("Marked as complete.")
             }
         })
     }    
@@ -53,7 +49,6 @@ class Friday extends Component {
     handleNotDoneDOW = (event, id) => {
         event.preventDefault()
         this.setState({Friday: false })
-
         let t = id
         const token = localStorage.token;
         fetch(`http://localhost:3000/day_of_weeks/${t}`, {    
@@ -72,27 +67,23 @@ class Friday extends Component {
                 window.alert(data.message)
             }
             else {
-                window.alert("Success!")
+                window.alert("Marked as incomplete.")
                 console.log(data)
             }
         })
     } 
     
     render() {
-
         let dow = this.props.habit.day_of_weeks.find(hd => hd.name === "Friday")
-
-
         return (
             <>
-                    {this.state.Friday === false ?
-
-            <Button size="tiny"id="Friday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
-            <Icon name="close" color="black" size="big"></Icon></Button>       
+            {this.state.Friday === false ?
+                <Button size="tiny"id="Friday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
+                    <Icon name="close" color="black" size="big"></Icon></Button>       
             :
-            <Button size="tiny"  id="Friday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
-            <Icon name="checkmark" color="teal" size="big"></Icon>
-            </Button>
+                <Button size="tiny"  id="Friday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
+                    <Icon name="checkmark" color="teal" size="big"></Icon>
+                </Button>
             }
             </> 
         )

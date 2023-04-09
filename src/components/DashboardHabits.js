@@ -8,6 +8,10 @@ import { checkUser } from './actions/rootActions'
 
 class DashboardHabits extends Component {
 
+  componentDidMount = () => {
+    this.props.checkUser()
+  }
+
   render() {
     const productGroup = this.props.habits.map ( 
       i=> <DashboardHabitsDOW habit={i} key={i.id}/>

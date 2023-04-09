@@ -19,8 +19,8 @@ class Habit extends Component {
             Sunday: false,
         }  
     }
-            
-    componentDidMount = () => {
+
+    checkDays = () => { 
         if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")){
         this.setState ({
             Monday: true 
@@ -57,6 +57,10 @@ class Habit extends Component {
             })
         }    
     }
+            
+    componentDidMount = () => {
+       this.checkDays()
+    }
 
     handleDelete = () => {
         let id = this.props.habit.id
@@ -81,6 +85,7 @@ class Habit extends Component {
         
     handleCloseCp = () => {
         this.props.checkUser()
+        this.checkDays()
         this.setState({ modalOpenCp: false })
     }
 
