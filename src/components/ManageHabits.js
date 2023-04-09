@@ -16,7 +16,7 @@ class ManageHabits extends Component {
         const habitGroup = this.props.habits.map( i => {
             return (
                 <div style={{textAlign: "left"}}>
-                    <Header as="h3" style={{marginBottom:"-1.5%"}}>
+                    <Header as="h3" style={{marginBottom:"-1%"}}>
                         {i.title}
                         <Habit habit={i}/>
                     </Header> 
@@ -27,13 +27,13 @@ class ManageHabits extends Component {
         })
         return (
             <div>                    
-                <Segment style={{height:"100%", fit:"cover", marginLeft:"-7%", marginRight:"-6.5%", marginTop:"-1.4%", opacity:"87%"}}>
+                <Segment style={{height:"100%", minHeight:"515px", marginLeft:"-7%", marginRight:"-6.5%", marginTop:"-1.4%", opacity:"87%"}}>
                     <Grid stackable columns={2} >
                         <Grid.Column style={{width:"300px"}}> 
                             <HabitMenu />
                         </Grid.Column>
                         <Grid.Column>
-                            <Item style={{marginLeft:"10%", marginTop:"3%", width:"737px"}}>
+                            <Item style={{marginLeft:"10%", marginTop:"4%", width:"850px"}}>
                                 {habitGroup}
                             </Item>
                         </Grid.Column> 
