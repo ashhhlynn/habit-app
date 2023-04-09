@@ -33,8 +33,9 @@ class Signup extends Component {
                     localStorage.token = data.jwt;
                     this.props.createUser(data.user)
                 }
-            })
-        }
+            }
+        )
+    }
 
     handleChange = (event) => {
         this.setState ({
@@ -91,6 +92,5 @@ const mapDispatchToProps = (dispatch) => {
       createUser: (data) =>  { dispatch(createUser(data)) }, 
     }
 }
-
 
 export default connect(null, mapDispatchToProps)(Signup)

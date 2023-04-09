@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Form } from "semantic-ui-react"
-import { getExistingUser } from "./actions/rootActions"
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"
 
@@ -43,7 +42,6 @@ class Login extends Component {
             })
         }
     
-
     render() {
         return (
             <>          
@@ -73,9 +71,7 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-      getExistingUser: (data) =>  { dispatch(getExistingUser(data)) }, 
-      checkUser: () =>  { dispatch(checkUser()) }, 
-
+      checkUser: () =>  { dispatch(checkUser()) } 
     }
 }
 

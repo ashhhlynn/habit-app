@@ -3,7 +3,6 @@ import CurrentUser from './CurrentUser'
 import { Button, Modal } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"
-import { fetchHabits } from './actions/rootActions'
 import { Link } from 'react-router-dom'
 
 class Landing extends Component {        
@@ -28,7 +27,7 @@ class Landing extends Component {
                     <img style={{width:"285px", marginTop: "1%", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png" alt="welcome"/>
                     <br></br>
                     {this.props.currentUser.length === 0 ?
-                    <>
+                        <>
                         <Button onClick={this.handleOpen} circular style={{fontWeight:"normal", backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">GET STARTED</Button>
                         <Modal style={{width:"500px"}}
                             open={this.state.modalOpen}
@@ -39,10 +38,10 @@ class Landing extends Component {
                                 <CurrentUser handleClose={this.handleClose} />
                             </Modal.Content>
                         </Modal>
-                    </>
+                        </>
                     :
                         <Link to="/habits">
-                            <Button inverted  circular style={{backgroundColor:"#FFFFFF", color: "grey", fontWeight:"normal"}}color="black" size="massive">TRACK HABITS</Button>
+                            <Button inverted circular style={{backgroundColor:"#FFFFFF", color: "grey", fontWeight:"normal"}}color="black" size="massive">TRACK HABITS</Button>
                         </Link>
                     }
                 </center>
@@ -60,7 +59,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
       checkUser: (data) =>  { dispatch(checkUser(data)) }, 
-      fetchHabits: () =>  { dispatch(fetchHabits()) }
     }
 }
 

@@ -27,61 +27,51 @@ class EditHabit extends Component {
   componentDidMount = () => {
     let dows= this.props.habit.day_of_weeks
     console.log(dows)
-   for (let i = 0; i < dows.length; i++) {
-    this.state.habitDays.push(dows[i].name)
-  }
-
-
+    for (let i = 0; i < dows.length; i++) {
+      this.state.habitDays.push(dows[i].name)
+    }
     if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")){
     this.setState ({
         Monday: true 
         })
     }
-
     if (this.props.habit.day_of_weeks.find(d => d.name === "Tuesday")){
         this.setState ({
             Tuesday: true 
             })
         }
-    
         if (this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")){
             this.setState ({
                 Wednesday: true 
                 })
             }
-
             if (this.props.habit.day_of_weeks.find(d => d.name === "Thursday")){
                 this.setState ({
                     Thursday: true 
                     })
                 }
-
             if (this.props.habit.day_of_weeks.find(d => d.name === "Friday")){
                 this.setState ({
                     Friday: true 
                     })
                 }
-
-                
             if (this.props.habit.day_of_weeks.find(d => d.name === "Saturday")){
                 this.setState ({
                     Saturday: true 
                     })
                 }
-
-                
             if (this.props.habit.day_of_weeks.find(d => d.name === "Sunday")){
                 this.setState ({
                    Sunday: true 
                     })
-                }    
-}
+        }    
+  }
         
-    handleChange = (event) => {
-      this.setState ({
-        [event.target.id]: event.target.value
-      })
-    }
+  handleChange = (event) => {
+    this.setState ({
+      [event.target.id]: event.target.value
+    })
+  }
 
   handleDOW = (event) => {
     event.preventDefault()
@@ -89,7 +79,8 @@ class EditHabit extends Component {
     this.state.habitDays.push(event.target.id)
     console.log(this.state.habitDays)
     this.setState({
-    [event.target.id]: true })
+    [event.target.id]: true 
+    })
   }
 
   handleDOWNo = (event) => {
@@ -99,7 +90,7 @@ class EditHabit extends Component {
     let newHd =   this.state.habitDays.filter(h => h !== event.target.id)
     this.setState({
       [event.target.id]: false,
-        habitDays: newHd
+      habitDays: newHd
     })
     console.log(this.state.habitDays)
   }
@@ -132,9 +123,7 @@ class EditHabit extends Component {
               else {
                   window.alert("Thank you! Your habit was updated.")
                   this.props.patchHabit(data)
-                  this.props.checkUser()
                   this.props.handleClose();
-           
               }
           }
         )
@@ -199,9 +188,6 @@ class EditHabit extends Component {
                    :
                    <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
 } 
-                       
-
-
                     <br></br><br></br>
                    <Form.Button className="formButtons" inverted style={{width:"250px", fontWeight:"normal", color:"white", backgroundColor:"#585858"}} content='SAVE HABIT'/>       
                 </Form>
@@ -211,19 +197,17 @@ class EditHabit extends Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
   return { 
-      currentUser: state.currentUser
+    currentUser: state.currentUser
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return { 
-      patchHabit: (habit) =>  { dispatch(patchHabit(habit)) }, 
-      checkUser: () =>  { dispatch(checkUser()) }, 
-
-    }
+  return { 
+    patchHabit: (habit) =>  { dispatch(patchHabit(habit)) }, 
+    checkUser: () =>  { dispatch(checkUser()) }, 
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditHabit)

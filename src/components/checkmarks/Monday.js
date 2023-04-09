@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Icon} from 'semantic-ui-react'
-import { editHabit } from '../actions/rootActions'
-import { connect } from "react-redux"
-import { fetchHabits } from '../actions/rootActions'
 
 class Monday extends Component {
 
@@ -96,12 +93,5 @@ class Monday extends Component {
         )
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return { 
-      editHabit: (habit) =>  { dispatch(editHabit(habit)) },
-    fetchHabits: () =>  { dispatch(fetchHabits()) }
 
-    }
-}
-
-export default connect(null, mapDispatchToProps)(Monday)
+export default Monday

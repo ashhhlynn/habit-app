@@ -36,26 +36,23 @@
   color: #585858  !important;
 }
 
-
 .ui.form > .header {
   color: #585858  !important;
 }
 
 .habitMenu .nav > .ui.menu.item  {
-  color: #585858    !important;
+  color: #585858 !important;
 }
 
 h1, h2 {
-
   color: #585858
-
 }
+
 .App-link {
   color: #61dafb;
 }
 
  .dash .ui.table > .cell {
-  width: 300px  !important;
   text-align: center;
 }
 

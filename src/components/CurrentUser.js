@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 function CurrentUser({ onLogin }) {
     const [showLogin, setShowLogin] = useState(true);
     return (
-        <div className="toggleLogin"><center>      
+        <div className="toggleLogin">
+            <center>      
             {showLogin ? (
                 <>
                 <Login onLogin={onLogin}/><br></br>
@@ -22,7 +23,8 @@ function CurrentUser({ onLogin }) {
                     </p>
                 </>
             )}   
-        </center></div>
+            </center>
+        </div>
     )
 }
 

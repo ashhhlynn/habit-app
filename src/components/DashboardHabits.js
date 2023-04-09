@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 import { deleteHabit } from './actions/rootActions'
 import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
-import { fetchHabits } from './actions/rootActions'
 import { checkUser } from './actions/rootActions'
 
 class DashboardHabits extends Component {
@@ -21,17 +20,17 @@ class DashboardHabits extends Component {
                 <HabitMenu />
               </Grid.Column>
               <Grid.Column>
-                <Table size="large" style={{textAlign:"center", marginTop:"4%", marginLeft:"17%"}} className="dash" celled>
+                <Table size="large" columns={8} fixed style={{width:"852px", textAlign:"center", marginTop:"4%", marginLeft:"9%"}} className="dash" celled>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell style={{width:"200px"}}>Habit</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Monday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Tuesday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Wednesday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Thursday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Friday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Saturday</Table.HeaderCell>
-                      <Table.HeaderCell style={{width:"200px"}}>Sunday</Table.HeaderCell>
+                      <Table.HeaderCell >Habit</Table.HeaderCell>
+                      <Table.HeaderCell>Monday</Table.HeaderCell>
+                      <Table.HeaderCell >Tuesday</Table.HeaderCell>
+                      <Table.HeaderCell >Wednesday</Table.HeaderCell>
+                      <Table.HeaderCell >Thursday</Table.HeaderCell>
+                      <Table.HeaderCell >Friday</Table.HeaderCell>
+                      <Table.HeaderCell >Saturday</Table.HeaderCell>
+                      <Table.HeaderCell >Sunday</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>
@@ -55,7 +54,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
       deleteHabit: (habit) =>  { dispatch(deleteHabit(habit)) }, 
-      fetchHabits: () =>  { dispatch(fetchHabits()) },
       checkUser: () =>  { dispatch(checkUser()) }
     }
 }

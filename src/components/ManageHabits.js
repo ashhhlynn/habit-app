@@ -4,7 +4,6 @@ import { Segment, Header,  Grid, Item } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
 import { checkUser } from './actions/rootActions'
-import { fetchHabits } from './actions/rootActions'
 
 class ManageHabits extends Component {
        
@@ -53,7 +52,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      fetchHabits: () =>  { dispatch(fetchHabits()) },
       checkUser: () =>  { dispatch(checkUser()) }
     }
 }
