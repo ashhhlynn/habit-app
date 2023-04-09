@@ -119,7 +119,7 @@ class EditHabit extends Component {
                   window.alert(data.message)
               }
               else {
-                  window.alert("Thank you! Your habit was updated.")
+                  window.alert("Your habit was updated.")
                   this.props.patchHabit(data)
                   this.props.handleClose();
               }
