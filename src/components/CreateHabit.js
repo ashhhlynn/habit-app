@@ -36,7 +36,6 @@ class CreateHabit extends Component {
     
     handleDOWNo = (event) => {
         event.preventDefault()
-        let o = this.state.habitDays.find(k => k === event.target.id)
         let newHd =   this.state.habitDays.filter(h => h !== event.target.id)
         this.setState ({
             [event.target.id]: false,

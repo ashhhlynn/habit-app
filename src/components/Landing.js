@@ -25,7 +25,7 @@ class Landing extends Component {
             <div>
                 <center>
                     <br></br><br></br>
-                    <img style={{width:"285px", marginTop: "1%", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png"/>
+                    <img style={{width:"285px", marginTop: "1%", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png" alt="welcome"/>
                     <br></br>
                     {this.props.currentUser.length === 0 ?
                     <>

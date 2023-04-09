@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Icon, Modal, Item, Label } from 'semantic-ui-react'
+import { Button, Icon, Modal, Label } from 'semantic-ui-react'
 import EditHabit from './EditHabit'
 import { deleteHabit } from './actions/rootActions'
 import { connect } from "react-redux"
