@@ -104,39 +104,39 @@ class CreateHabit extends Component {
                         onChange={this.handleChange}
                         />
                     {this.state.Monday === false ?
-                        <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>MO</Button>
+                        <Button id="Monday" basic circular color="teal" onClick={this.handleDOW}>M</Button>
                     :
-                        <Button id="Monday" circular color="teal" onClick={this.handleDOWNo}>MO</Button>
+                        <Button id="Monday" circular color="teal" onClick={this.handleDOWNo}>M</Button>
                     }
 
                     {this.state.Tuesday === false ?
-                        <Button id="Tuesday" circular value="Tuesday" basic  color="teal" onClick={this.handleDOW}>TU</Button>
+                        <Button id="Tuesday" circular value="Tuesday" basic  color="teal" onClick={this.handleDOW}>T</Button>
                     :
-                        <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>TU</Button>
+                        <Button id="Tuesday" circular color="teal" onClick={this.handleDOWNo}>T</Button>
                     }
                 
                     {this.state.Wednesday === false ?
-                        <Button id="Wednesday" basic circular color="teal" onClick={this.handleDOW}>WE</Button>
+                        <Button id="Wednesday" basic circular color="teal" onClick={this.handleDOW}>W</Button>
                     :
-                        <Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>WE</Button>}
+                        <Button id="Wednesday"circular color="teal" onClick={this.handleDOWNo}>W</Button>}
 
                     {this.state.Thursday === false ?
-                        <Button id="Thursday" basic circular color="teal" onClick={this.handleDOW} >TH</Button>
+                        <Button id="Thursday" basic circular color="teal" onClick={this.handleDOW} >T</Button>
                     :
-                        <Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >TH</Button>}
+                        <Button id="Thursday"circular color="teal" onClick={this.handleDOWNo} >T</Button>}
 
                     {this.state.Friday === false ?
-                        <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >FR</Button>
+                        <Button id="Friday" basic circular color="teal" onClick={this.handleDOW} >F</Button>
                     : 
-                        <Button id="Friday" circular color="teal" onClick={this.handleDOWNo} >FR</Button>}
+                        <Button id="Friday" circular color="teal" onClick={this.handleDOWNo} >F</Button>}
                     {this.state.Saturday === false ?
-                        <Button id="Saturday" basic circular color="teal" onClick={this.handleDOW} >SA</Button>
+                        <Button id="Saturday" basic circular color="teal" onClick={this.handleDOW} >S</Button>
                     :
-                        <Button id="Saturday" circular color="teal" onClick={this.handleDOWNo} >SA</Button>}
+                        <Button id="Saturday" circular color="teal" onClick={this.handleDOWNo} >S</Button>}
                     {this.state.Sunday === false ?
-                        <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>SU</Button>
+                        <Button id="Sunday" basic circular color="teal" onClick={this.handleDOW}>S</Button>
                     :
-                        <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>SU</Button>
+                        <Button id="Sunday" circular color="teal" onClick={this.handleDOWNo}>S</Button>
                     } 
                    <br></br><br></br>
                    <Form.Button inverted style={{width:"250px", fontWeight:"normal", color:"white", backgroundColor:"#585858"}}className="formButtons" content='SAVE HABIT'/>        

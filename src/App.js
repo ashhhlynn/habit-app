@@ -4,6 +4,8 @@ import ManageHabits from './components/ManageHabits'
 import Habit from './components/Habit'
 import CreateHabit from './components/CreateHabit'
 import DashboardHabits from './components/DashboardHabits'
+import EditHabitTwo from './components/EditHabitTwo'
+
 import Navbar from './components/Navbar'
 import { Container } from 'semantic-ui-react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -32,6 +34,8 @@ class App extends Component {
             <Route exact path="/habit" element={<Habit />} />
             <Route exact path="/createhabit" element={<CreateHabit />} />
             <Route exact path="/yourhabits" element={<DashboardHabits />} />
+            <Route exact path="/edithabit" element={<EditHabitTwo />} />
+
           </Routes>
       </Container>
     </div>

@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
-import { Button, Icon, Modal, Label } from 'semantic-ui-react'
-import EditHabit from './EditHabit'
+import { Label } from 'semantic-ui-react'
 
-import { checkUser, deleteHabit } from './actions/rootActions'
-import { connect } from "react-redux"
 
-class Habit extends Component {
+class HabitDOW extends Component {
   
-    constructor(props){  
-        super(props);  
-        this.state = {  
-            modalOpenCp: false,
+
+       state = {  
             Monday: false,
             Tuesday: false,
             Wednesday: false,
@@ -19,8 +14,7 @@ class Habit extends Component {
             Saturday: false,
             Sunday: false,
         }  
-    }
-            
+    
     componentDidMount = () => {
         if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")){
         this.setState ({
@@ -67,39 +61,10 @@ class Habit extends Component {
                     }    
     }
 
-    handleDelete = () => {
-        let id = this.props.habit.id
-        const token = localStorage.token;
-        return fetch(`http://localhost:3000/habits/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })   
-        .then(
-            window.alert("Your habit was deleted."),
-            this.props.deleteHabit(id)
-        )
-    }           
-    
-    handleOpenCp = () => {
-        this.setState({ modalOpenCp: true });
-    }
-        
-    handleCloseCp = () => {
-        this.props.checkUser()
-
-        this.setState({ modalOpenCp: false })
-    }
-
     render() {
-     
+      
         return (
           <>
-            <Label.Group style={{marginTop: "-3%", textAlign:"right"}}>
-             
             {this.state.Monday === false ?
             <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="white">M </Label>:     
             <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">M </Label>  
@@ -142,30 +107,12 @@ class Habit extends Component {
    :            <Label style={{ justifyContent: "center", textAlign:"center"}} circular size="large" color="teal">S </Label>     
 
         }
-                <Button color="teal" floated="right" style={{ justifyContent: "center", textAlign:"center"}} basic size="tiny" onClick={this.handleOpenCp}>  <Icon style={{ textAlign:"center"}} name="pencil alternate"/></Button>
-                <Button color="teal" floated="right" style={{ textAlign:"center"}} basic size="tiny" onClick={this.handleDelete}>  <Icon style={{ textAlign:"center"}} name="trash"></Icon></Button>
-            </Label.Group>   
-            <Modal 
-                style={{width: "600px"}}
-                open={this.state.modalOpenCp}
-                onClose={this.handleCloseCp}
-                closeIcon
-            >
-                <Modal.Content>
-                    <EditHabit habit={this.props.habit} handleClose={this.handleCloseCp} />
-                </Modal.Content>
-            </Modal>
+        
         </>
         )
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      deleteHabit: (id) =>  { dispatch(deleteHabit(id)) },
-      checkUser: () =>  { dispatch(checkUser()) }, 
 
-    }
-  }
 
-export default connect(null, mapDispatchToProps)(Habit)
+export default HabitDOW
