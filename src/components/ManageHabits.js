@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Habit from './Habit'
-import { Segment, Header,  Grid, Item, Label, Button, Icon } from 'semantic-ui-react'
+import { Segment, Header,  Grid, Item } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import HabitMenu from './HabitMenu'
 import { checkUser } from './actions/rootActions'

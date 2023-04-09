@@ -85,7 +85,7 @@ class Wednesday extends Component {
             <>
             {this.state.Wednesday === false ?
             <Button size="tiny"id="Wednesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
-            <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
+            <Icon name="close" color="black" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Wednesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>

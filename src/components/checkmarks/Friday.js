@@ -1,6 +1,5 @@
-import Calendar from 'react-calendar'
 import React, { Component } from 'react'
-import { Form, Grid, Button, Icon} from 'semantic-ui-react'
+import {  Button, Icon} from 'semantic-ui-react'
 
 class Friday extends Component {
 
@@ -89,7 +88,7 @@ class Friday extends Component {
                     {this.state.Friday === false ?
 
             <Button size="tiny"id="Friday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
-            <Icon name="minus square outline" color="black" size="big"></Icon></Button>       
+            <Icon name="close" color="black" size="big"></Icon></Button>       
             :
             <Button size="tiny"  id="Friday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
             <Icon name="checkmark" color="teal" size="big"></Icon>
