@@ -23,12 +23,11 @@ class Landing extends Component {
         return (
             <div>
                 <center>
-                    <br></br><br></br>
-                    <img style={{width:"285px", marginTop: "1%", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png" alt="welcome"/>
+                    <img style={{width:"285px", marginTop: "4%", height:"300px"}} src="https://cdn3.iconfinder.com/data/icons/man-poses/512/running_man-512.png" alt="welcome"/>
                     <br></br>
                     {this.props.currentUser.length === 0 ?
                         <>
-                        <Button onClick={this.handleOpen} circular style={{fontWeight:"normal", backgroundColor:"white", color:"grey"}}  color="black" inverted size="massive">GET STARTED</Button>
+                        <Button onClick={this.handleOpen} circular style={{fontWeight:"normal", backgroundColor:"white", color:"grey"}}  inverted size="massive">GET STARTED</Button>
                         <Modal style={{width:"500px"}}
                             open={this.state.modalOpen}
                             onClose={this.handleClose}
@@ -41,7 +40,7 @@ class Landing extends Component {
                         </>
                     :
                         <Link to="/habits">
-                            <Button inverted circular style={{backgroundColor:"#FFFFFF", color: "grey", fontWeight:"normal"}}color="black" size="massive">TRACK HABITS</Button>
+                            <Button inverted circular style={{backgroundColor:"#FFFFFF", color: "grey", fontWeight:"normal"}} size="massive">TRACK HABITS</Button>
                         </Link>
                     }
                 </center>
@@ -58,7 +57,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-      checkUser: (data) =>  { dispatch(checkUser(data)) }, 
+      checkUser: (data) =>  { dispatch(checkUser(data)) }
     }
 }
 

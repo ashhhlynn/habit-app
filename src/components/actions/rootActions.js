@@ -8,6 +8,7 @@ export const createHabit = (habit) => {
 export const patchHabit = (data) => {
     return (dispatch) => {
         dispatch({ type: "PATCH_HABIT", data })
+        console.log(data)
     }
 }
 

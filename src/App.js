@@ -16,24 +16,24 @@ class App extends Component {
   componentDidMount = () => {
     if (localStorage.token) {
       this.props.checkUser()
-    }            
+    }       
   }
 
   render() {
     return (
       <Router>
-      <div className="App">   
-        <Navbar/>
-        <Container style={{marginTop:"0%"}}>
-          <Routes>
-            <Route exact path="/" element={<Landing />} />
-            <Route exact path="/habits" element={<ManageHabits />} />
-            <Route exact path="/habit" element={<Habit />} />
-            <Route exact path="/createhabit" element={<CreateHabit />} />
-            <Route exact path="/yourhabits" element={<DashboardHabits />} />
-          </Routes>
-        </Container>
-      </div>
+        <div className="App">   
+          <Navbar/>
+          <Container style={{marginTop:"0%"}}>
+            <Routes>
+              <Route exact path="/" element={<Landing />} />
+              <Route exact path="/habits" element={<ManageHabits />} />
+              <Route exact path="/habit" element={<Habit />} />
+              <Route exact path="/createhabit" element={<CreateHabit />} />
+              <Route exact path="/yourhabits" element={<DashboardHabits />} />
+            </Routes>
+          </Container>
+        </div>
       </Router>
     )
   }

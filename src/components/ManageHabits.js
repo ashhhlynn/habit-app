@@ -17,7 +17,7 @@ class ManageHabits extends Component {
                 <div style={{textAlign: "left"}}>
                     <Header as="h3" style={{marginBottom:"-1%"}}>
                         {i.title}
-                        <Habit habit={i}/>
+                        <Habit habit={i} key={i.id}/>
                     </Header> 
                     <i style={{marginTop:"0%"}}>{i.description} </i>
                     <br></br><br></br>  
