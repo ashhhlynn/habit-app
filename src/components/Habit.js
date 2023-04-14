@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Icon, Modal, Label } from 'semantic-ui-react'
 import EditHabit from './EditHabit'
-import { checkUser, deleteHabit } from './actions/rootActions'
+import { deleteHabit } from './actions/rootActions'
 import { connect } from "react-redux"
 
 class Habit extends Component {
@@ -82,25 +82,23 @@ class Habit extends Component {
                 habit_id: this.props.habit.id,
                 name: title
             })
-            })
-            .then(resp => resp.json())
-            .then(data => {
-                if (data.message) {
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.message) {
                 window.alert(data.message)
             }
-               else {
+            else {
                 window.alert('Your day of week was added.')
                 this.setState ({
                     [event.target.id]: true 
                 })
-               }
-        }
-    )
-} 
+            }
+        })
+    } 
 
     handleDeleteDow = (event) => {
         let x = this.props.habit.day_of_weeks.find(d => d.name === event.target.id)
-        console.log(x)
         let id = x.id
         const token = localStorage.token;
         return fetch(`http://localhost:3000/day_of_weeks/${id}`, {
@@ -135,27 +133,27 @@ class Habit extends Component {
             }
             {this.state.Wednesday === false ?
                 <Button id="Wednesday" basic circular color="teal" onClick={this.handleCreateDow}>W</Button>
-                :
-                    <Button id="Wednesday"circular color="teal" onClick={this.handleDeleteDow}>W</Button>
+            :
+                <Button id="Wednesday"circular color="teal" onClick={this.handleDeleteDow}>W</Button>
             }     
             {this.state.Thursday === false ?
                 <Button id="Thursday" basic circular color="teal" onClick={this.handleCreateDow} >T</Button>
-                :
-                    <Button id="Thursday"circular color="teal" onClick={this.handleDeleteDow} >T</Button>
+            :
+                <Button id="Thursday"circular color="teal" onClick={this.handleDeleteDow} >T</Button>
             }
             {this.state.Friday === false ?
-                            <Button id="Friday" basic circular color="teal" onClick={this.handleCreateDow} >F</Button>
-                        : 
-                            <Button id="Friday" circular color="teal" onClick={this.handleDeleteDow} >F</Button>}
-                        {this.state.Saturday === false ?
-                            <Button id="Saturday" basic circular color="teal" onClick={this.handleCreateDow} >S</Button>
-                        :
-                            <Button id="Saturday" circular color="teal" onClick={this.handleDeleteDow} >S</Button>}
-                        {this.state.Sunday === false ?
-                            <Button id="Sunday" basic circular color="teal" onClick={this.handleCreateDow}>S</Button>
-                        :
-                            <Button id="Sunday" circular color="teal" onClick={this.handleDeleteDow}>S</Button>
-                        } 
+                <Button id="Friday" basic circular color="teal" onClick={this.handleCreateDow} >F</Button>
+            : 
+                <Button id="Friday" circular color="teal" onClick={this.handleDeleteDow} >F</Button>}
+            {this.state.Saturday === false ?
+                <Button id="Saturday" basic circular color="teal" onClick={this.handleCreateDow} >S</Button>
+            :
+                <Button id="Saturday" circular color="teal" onClick={this.handleDeleteDow} >S</Button>}
+            {this.state.Sunday === false ?
+                <Button id="Sunday" basic circular color="teal" onClick={this.handleCreateDow}>S</Button>
+            :
+                <Button id="Sunday" circular color="teal" onClick={this.handleDeleteDow}>S</Button>
+            } 
             <Button color="teal" floated="right" style={{ textAlign:"center"}} basic size="tiny" onClick={this.handleOpen}><Icon style={{ textAlign:"center", marginLeft:"2%"}} name="pencil alternate"/></Button>
             <Button color="teal" floated="right" style={{ textAlign:"center"}} basic size="tiny" onClick={this.handleDelete}><Icon style={{ textAlign:"center", marginLeft:"3%"}} name="trash"></Icon></Button>
             </Label.Group>   
@@ -183,7 +181,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       deleteHabit: (id) =>  { dispatch(deleteHabit(id)) },
-      checkUser: () =>  { dispatch(checkUser()) }
     }
 }
 

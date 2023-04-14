@@ -19,7 +19,7 @@ class ManageHabits extends Component {
                         {i.title}
                         <Habit habit={i} key={i.id}/>
                     </Header> 
-                    <i style={{marginTop:"0%"}}>{i.description} </i>
+                    <i style={{marginTop:"0%"}}>{i.description}</i>
                     <br></br><br></br>  
                 </div>
             )
@@ -52,7 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      checkUser: () =>  { dispatch(checkUser()) }
+        checkUser: () =>  { dispatch(checkUser()) }
     }
 }
 

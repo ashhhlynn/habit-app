@@ -46,12 +46,12 @@ class DashboardHabits extends Component {
           </Segment>
         </div>
       )
-    }
+  }
 }
 
 const mapStateToProps = (state) => {
   return { 
-      habits: state.habits
+    habits: state.habits
   }
 }
 

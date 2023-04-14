@@ -44,36 +44,9 @@ class CreateHabit extends Component {
 
     handleSubmit = (event, habit) => {
         event.preventDefault()
-        console.log(habit)
-        const token = localStorage.token;
-        let d = habit.habitDays
-        console.log(d)
-                return fetch('http://localhost:3000/habits', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization':  `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    title: habit.title,
-                    description: habit.description,
-                    day_of_weeks: habit.habitDays,
-                    user_id: this.props.currentUser.id
-                })
-                })
-                .then(resp => resp.json())
-                .then(data => {
-                    if (data.message) {
-                    window.alert(data.message)
-                }
-                   else {
-                    window.alert('Your habit was created.')
-                    this.props.createHabit(data)
-                   }
-            }
-        )
-    } 
+        let currentUser = this.props.currentUser.id
+        this.props.createHabit(habit, currentUser)
+    }
 
     render() {
         return ( 
@@ -152,7 +125,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-      createHabit: (habit) =>  { dispatch(createHabit(habit)) }, 
+      createHabit: (habit, currentUser) =>  { dispatch(createHabit(habit, currentUser)) }, 
     }
 }
 

@@ -1,16 +1,63 @@
-export const createHabit = (habit) => {
+export const createHabit = (habit, currentUser) => {
     return (dispatch) => {
-        console.log(habit)
-        dispatch({ type: "CREATE_HABIT", habit })
+        const token = localStorage.token;
+        return fetch('http://localhost:3000/habits', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization':  `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                title: habit.title,
+                description: habit.description,
+                day_of_weeks: habit.habitDays,
+                user_id: currentUser
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.message) {
+                window.alert(data.message)
+            }
+            else {
+                window.alert('Your habit was created.')
+                dispatch({ type: "CREATE_HABIT", habit: data })
+            }
+        })
     }
+}
+     
+export const patchHabit = (habit, currentUser) => {
+    return (dispatch) => {
+        const token = localStorage.token;
+        let id = habit.id
+        fetch(`http://localhost:3000/habits/${id}`, {  
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                title: habit.title,
+                description: habit.description,
+                user_id: currentUser
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.message) {
+                window.alert(data.message)
+            }
+            else {
+                window.alert("Your habit was updated.")
+                dispatch({ type: "PATCH_HABIT", data })
+            }
+        })
+    }      
 }
 
-export const patchHabit = (data) => {
-    return (dispatch) => {
-        dispatch({ type: "PATCH_HABIT", data })
-        console.log(data)
-    }
-}
 
 export const deleteHabit = (id) => {
     return (dispatch) => {
