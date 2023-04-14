@@ -14,27 +14,7 @@ class Signup extends Component {
 
     handleSubmit = (event, userData) => {
         event.preventDefault()
-            return fetch('http://localhost:3000/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: JSON.stringify({
-                user: userData
-            })
-            })
-            .then(resp => resp.json())
-            .then(data => {
-                if (data.message) {
-                    window.alert(data.message)
-                }
-                else {
-                    localStorage.token = data.jwt;
-                    this.props.createUser(data.user)
-                }
-            }
-        )
+        this.props.createUser(userData)   
     }
 
     handleChange = (event) => {

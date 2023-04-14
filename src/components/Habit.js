@@ -64,19 +64,7 @@ class Habit extends Component {
 
     handleDelete = () => {
         let id = this.props.habit.id
-        const token = localStorage.token;
-        return fetch(`http://localhost:3000/habits/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })   
-        .then(
-            window.alert("Your habit was deleted."),
-            this.props.deleteHabit(id)
-        )
+        this.props.deleteHabit(id)
     }           
     
     handleOpenCp = () => {
@@ -84,7 +72,6 @@ class Habit extends Component {
     }
         
     handleCloseCp = () => {
-        this.props.checkUser()
         this.checkDays()
         this.setState({ modalOpenCp: false })
     }

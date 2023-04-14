@@ -32,7 +32,7 @@ class ManageHabits extends Component {
                             <HabitMenu />
                         </Grid.Column>
                         <Grid.Column>
-                            <Item style={{marginLeft:"10%", marginTop:"4%", width:"850px"}}>
+                            <Item style={{marginLeft:"9%", marginTop:"4%", width:"850px"}}>
                                 {habitGroup}
                             </Item>
                         </Grid.Column> 
