@@ -68,7 +68,7 @@ class CreateHabit extends Component {
                     window.alert(data.message)
                 }
                    else {
-                    window.alert('Your habit was created!')
+                    window.alert('Your habit was created.')
                     this.props.createHabit(data)
                    }
             }
