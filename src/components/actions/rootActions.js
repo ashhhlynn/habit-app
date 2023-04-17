@@ -58,7 +58,6 @@ export const patchHabit = (habit, currentUser) => {
     }      
 }
 
-
 export const deleteHabit = (id) => {
     return (dispatch) => {
         const token = localStorage.token;
