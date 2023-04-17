@@ -5,7 +5,6 @@ import { deleteHabit } from './actions/rootActions'
 import DashboardHabitsDOW from './DashboardHabitsDOW'
 import HabitMenu from './HabitMenu'
 import { checkUser } from './actions/rootActions'
-import DowMark from './checkmarks/DowMark'
 
 class DashboardHabits extends Component {
 

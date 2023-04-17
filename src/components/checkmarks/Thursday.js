@@ -35,7 +35,8 @@ class Thursday extends Component {
             },
             body: JSON.stringify({
                 done: 1
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
@@ -61,7 +62,8 @@ class Thursday extends Component {
             },
             body: JSON.stringify({
                 done: 0
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
@@ -79,7 +81,8 @@ class Thursday extends Component {
             <>
             {this.state.Thursday === false ?
                 <Button size="tiny"id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handlePatchDOW(event, dow.id)}} >
-                    <Icon name="close" color="black" size="big"></Icon></Button>       
+                    <Icon name="close" color="black" size="big"></Icon>
+                </Button>       
             :
                 <Button size="tiny"  id="Thursday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
                     <Icon name="checkmark" color="teal" size="big"></Icon>

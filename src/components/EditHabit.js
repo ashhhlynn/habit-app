@@ -7,11 +7,11 @@ class EditHabit extends Component {
     
   constructor(props){
     super(props)
-      this.state = {
-        title: this.props.habit.title,
-        description: this.props.habit.description,
-        id: this.props.habit.id,
-      }
+    this.state = {
+      title: this.props.habit.title,
+      description: this.props.habit.description,
+      id: this.props.habit.id,
+    }
   }
         
   handleChange = (event) => {

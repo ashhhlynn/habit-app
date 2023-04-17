@@ -34,7 +34,8 @@ class Sunday extends Component {
             },
             body: JSON.stringify({
                 done: 1
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
@@ -60,7 +61,8 @@ class Sunday extends Component {
             },
             body: JSON.stringify({
                 done: 0
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {

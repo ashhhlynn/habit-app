@@ -9,7 +9,7 @@ class Monday extends Component {
     }
 
     componentDidMount = () => {
-        if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")){
+        if (this.props.habit.day_of_weeks.find(d => d.name === "Monday")) {
             let dow = this.props.habit.day_of_weeks.find(d => d.name === "Monday")
             this.setState({day: dow })
             if (dow.done) {
@@ -35,7 +35,8 @@ class Monday extends Component {
             },
             body: JSON.stringify({
                 done: 1
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
@@ -61,7 +62,8 @@ class Monday extends Component {
             },
             body: JSON.stringify({
                 done: 0
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {

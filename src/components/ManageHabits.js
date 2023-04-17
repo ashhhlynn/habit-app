@@ -49,7 +49,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
     return {
         checkUser: () =>  { dispatch(checkUser()) }

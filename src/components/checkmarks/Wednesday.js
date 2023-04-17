@@ -9,7 +9,7 @@ class Wednesday extends Component {
     }
 
     componentDidMount = () => {
-        if (this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")){
+        if (this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")) {
             let dow = this.props.habit.day_of_weeks.find(d => d.name === "Wednesday")
             this.setState({day: dow})
             if (dow.done) {
@@ -36,7 +36,8 @@ class Wednesday extends Component {
             },
             body: JSON.stringify({
                 done: 1
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
@@ -62,7 +63,8 @@ class Wednesday extends Component {
             },
             body: JSON.stringify({
                 done: 0
-            })})
+            })
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
@@ -83,7 +85,7 @@ class Wednesday extends Component {
                     <Icon name="close" color="black" size="big"></Icon>
                 </Button>       
             :
-                    <Button size="tiny"  id="Wednesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
+                <Button size="tiny"  id="Wednesday" style={{backgroundColor: "#ffffff"}} onClick={(event) => {this.handleNotDoneDOW(event, dow.id)}} >
                     <Icon name="checkmark" color="teal" size="big"></Icon>
                 </Button>
             }
