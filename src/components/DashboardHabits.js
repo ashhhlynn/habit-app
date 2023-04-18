@@ -16,6 +16,7 @@ class DashboardHabits extends Component {
     const productGroup = this.props.habits.map ( 
       i=> <DashboardHabitsDOW habit={i} key={i.id}/>
     )
+  
       return (
         <div className="yourhabits">
           <Segment style={{height:"100%", minHeight:"515px", marginLeft:"-7%", marginRight:"-6.5%", marginTop:"-1.4%", opacity:"87%"}}>
@@ -51,7 +52,8 @@ class DashboardHabits extends Component {
 
 const mapStateToProps = (state) => {
   return { 
-    habits: state.habits
+    habits: state.habits,
+    dows: state.dows
   }
 }
 

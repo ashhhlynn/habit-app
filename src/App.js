@@ -14,6 +14,7 @@ import { connect } from "react-redux"
 class App extends Component {
 
   componentDidMount = () => {
+    window.alert("Backend deployment still processing. Visit https://github.com/ashhhlynn/habit-app-back for instructions on accessing database!")
     if (localStorage.token) {
       this.props.checkUser()
     }       

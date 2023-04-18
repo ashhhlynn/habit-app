@@ -37,7 +37,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 habits: action.habits,
-                loading: false
+                loading: false,
             };
         case 'LOGOUT':
             return {
