@@ -6,10 +6,8 @@ A weekly habit tracker application created with a Rails API backend and JavaScri
   
 ## Functionality
 
-- Users can create accounts and sign in, authenticated and authorized through BCrpyt, stored through JWT.
-
+- Users can create accounts and sign in, authenticated and authorized through BCrypt, stored through JWT.
 - Users can create habits for specific days of the week, and edit & delete them. 
-
 - Users can view a weekly calendar of their habits marked as complete or incomplete.
 
 
@@ -26,10 +24,10 @@ A weekly habit tracker application created with a Rails API backend and JavaScri
 - Redux
 - Semantic UI React
 - HTML & CSS
-- PostgresQL - Database
-- Bcrypt and JWT for authentication and authorization
-- rack-cors - provides support for Cross-Origin Resource Sharing for Rack compatible web applications(allows the front-end portion of this project to perform fetch requests)
-- active_model_serializers - allows customization and rendering of data in JSON format as responses to requests
+- PostgreSQL
+- Bcrypt and JWT 
+- rack-cors 
+- active_model_serializers 
 - React Router
 
 ## Instructions
