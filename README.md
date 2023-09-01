@@ -10,12 +10,6 @@ A weekly habit tracker application created with a Rails API backend and JavaScri
 - Users can create habits for specific days of the week, and edit & delete them. 
 - Users can view a weekly calendar of their habits marked as complete or incomplete.
 
-
-## Media 
-<img width="800" height="380" src="https://user-images.githubusercontent.com/84604278/230031218-6d31fcce-c951-49ea-84b6-13f7d92fbe20.png">
-
-
-
 ## Tech Stack
 
 - Ruby 
