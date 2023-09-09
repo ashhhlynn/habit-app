@@ -2,7 +2,7 @@
 
 ## Description
   
-A weekly habit tracker application created with a Rails API backend and JavaScript React & Redux frontend. Users can create, edit, and delete habits for specific days of the week, and mark them as complete or incomplete for that day. Styled with Semantic UI and CSS. 
+A weekly habit tracker application created with a Ruby on Rails backend and JavaScript React & Redux frontend. Users can create, edit, and delete habits for specific days of the week, and mark them as complete or incomplete for that day. Styled with Semantic UI and CSS. 
   
 ## Functionality
 
@@ -19,7 +19,7 @@ A weekly habit tracker application created with a Rails API backend and JavaScri
 - Semantic UI React
 - HTML & CSS
 - PostgreSQL
-- Bcrypt and JWT 
+- BCrypt and JWT 
 - rack-cors 
 - active_model_serializers 
 - React Router
